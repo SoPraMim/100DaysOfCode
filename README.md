@@ -3,3 +3,6 @@ This is a commpilation of my resolution of the projects from the 100 Days of Cod
 
 ## Projects:
 * Day 1 - Band name generator
+* Day 2 - Tip Calculator
+* Day 3 - Treasure Island Game
+* Day 4 - Rock, Paper, Scissors Game

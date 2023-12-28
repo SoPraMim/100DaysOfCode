@@ -22,10 +22,10 @@ def main():
         *******************************************************************************
         ''')
 
-    print("Welcome to Treasure Map\nYour mission is to find treasure.")
+    print("Welcome to Treasure Island.\nYour mission is to find treasure.")
     
     #1st screen
-    print("You're at a crossroad.which way do you want to go? Type \"left\" or \"right\"")
+    print("You start at a crossroad. Which way do you want to go? Type \"left\" or \"right\"")
     user_input = 0
     while user_input == 0:
         user_input = (input()).lower()
