@@ -13,12 +13,19 @@ def main():
     #Easy Level - Order not randomised:
     #e.g. 4 letter, 2 symbol, 2 number = JduE&!91
     print("Solved for the easy level:")
-    random.shuffle(letters)
-    random.shuffle(numbers)
-    random.shuffle(symbols)
-    password = (letters[0:nr_letters])
-    password.extend(numbers[0:nr_numbers])
-    password.extend(symbols[0:nr_symbols])
+    password = []
+    for i in range(0,nr_letters):
+        random_index = random.randint(0,len(letters)-1)
+        password.append(letters[random_index])
+
+    for i in range(0,nr_symbols):
+        random_index = random.randint(0,len(symbols)-1)
+        password.append(symbols[random_index])
+    
+    for i in range(0,nr_numbers):
+        random_index = random.randint(0,len(numbers)-1)
+        password.append(numbers[random_index])
+
     print(''.join(password))
 
     #Hard Level - Order of characters randomised:
