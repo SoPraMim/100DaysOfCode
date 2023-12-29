@@ -15,16 +15,13 @@ def main():
     print("Solved for the easy level:")
     password = []
     for i in range(0,nr_letters):
-        random_index = random.randint(0,len(letters)-1)
-        password.append(letters[random_index])
+        password.append(random.choice(letters))
 
     for i in range(0,nr_symbols):
-        random_index = random.randint(0,len(symbols)-1)
-        password.append(symbols[random_index])
+        password.append(random.choice(symbols))
     
     for i in range(0,nr_numbers):
-        random_index = random.randint(0,len(numbers)-1)
-        password.append(numbers[random_index])
+        password.append(random.choice(numbers))
 
     print(''.join(password))
 
