@@ -1,0 +1,30 @@
+#  My solution to the maze puzzle. This includes the test cases as well.
+        
+def turn_right():
+    for i in range(0,3):
+        turn_left()
+
+found_wall = False
+while not at_goal():
+    # 1st we look for a wall.
+    if not found_wall:
+        if wall_on_right():
+            found_wall = True
+            continue
+        if wall_in_front():
+            found_wall = True
+            turn_left() # Ensures proper orientation
+            continue
+        else:
+            move()
+            continue
+    
+    # Now that we found a wall, we can start following it.
+    if right_is_clear():
+        turn_right()
+        move()
+    elif front_is_clear():
+        move()
+    else:
+        turn_left()
+        

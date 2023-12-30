@@ -1,0 +1,27 @@
+# This day was done on https://reeborg.ca/
+#
+# This is my solution for the Hurdle challenge. You can find it here:
+# https://reeborg.ca/reeborg.html?lang=en&mode=python&menu=worlds%2Fmenus%2Freeborg_intro_en.json&name=Hurdle%201&url=worlds%2Ftutorial_en%2Fhurdle1.json
+
+def turn_around():  # this function is actually not used, but it could be a useful command, so I kept it.
+    for i in range(0,2):
+        turn_left()
+
+def turn_right():
+    for i in range(0,3):
+        turn_left()
+
+def jump():
+    turn_left()
+    move()
+    for i in  range (0,2):
+        turn_right()
+        move()
+    turn_left()
+    
+while at_goal() == False:
+    if front_is_clear():
+        move()
+    else:
+        jump()
+    end=at_goal()
