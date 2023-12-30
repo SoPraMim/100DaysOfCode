@@ -100,17 +100,16 @@ def getGuess():
     while True:
         guess = input("\nAdivinha uma letra: ").lower()
         if len(guess) != 1:
-            print("\nInsere uma única letra")
-            continue    
-        try:
-            int(guess)
-            print("\nEscolhe uma letra")
-        except:
-            if guess in letters_used:
-                print(f"{guess} já foi selecionado. Escolhe outra letra.")
-                continue
-            else:
-                break 
+            print("\nInsere uma única letra")    
+        else:
+            try:
+                int(guess)
+                print("\nEscolhe uma letra")
+            except:
+                if guess in letters_used:
+                    print(f"{guess} já foi selecionado. Escolhe outra letra.")
+                else:
+                    break 
 
     return guess
 
