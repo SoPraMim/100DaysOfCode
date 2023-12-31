@@ -1,37 +1,7 @@
-word_list = [
-    "Elefante",
-    "Águia",
-    "Leopardo",
-    "Golfinho",
-    "Canário",
-    "Raposa",
-    "Gorila",
-    "Orangotango",
-    "Iguana",
-    "Falcão",
-    "Koala",
-    "Lémure",
-    "Pescada",
-    "Polvo",
-    "Panda",
-    "Leopardo",
-    "Tigre",
-    "Macaco",
-    "Morcego",
-    "Atum",
-    "Iaque",
-    "Zebra",
-    "Tatu",
-    "Abelha",
-    "Chimpanzé",
-    "Dingo",
-    "Borboleta",
-    "Hipopótamo"
-]
-
 def main():
     import figures
     import random
+    import words
     
     # Welcome screen
     print(figures.title)
@@ -39,7 +9,7 @@ def main():
     input()
     
     # Choose a word from the word_list.
-    chosen_word = [*random.choice(word_list).lower()] # the * unpacks the string into characters.
+    chosen_word = [*random.choice(words.word_list).lower()] # the * unpacks the string into characters.
     # print(f"the solution is {chosen_word}")
     
     # Set initial display
@@ -114,10 +84,16 @@ def getGuess():
     return guess
 
 def printDisplay():
+    cls()
     print(hangman[lives])
     print(" ".join(display),"\n")
     if len(letters_used) > 0:
         print(f"Letras usadas:\n{' '.join(letters_used)}")
+
+import os
+def cls():
+    os.system('cls' if os.name=='nt' else 'clear') #check OS and gives the proper command
+cls()
 
 if __name__ == "__main__":
     main()
