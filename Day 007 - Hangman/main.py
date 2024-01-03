@@ -1,15 +1,16 @@
+from GenericFunctions import cls
 def main():
     import figures
     import random
-    import words
+    from words import word_list
+    from GenericFunctions import set_y_or_n, alphabet
     
     # Welcome screen
+    cls()
     print(figures.title)
     print("Bem vindo ao Hangman!\nPressiona Enter para continuar.")
     input()
     
-    # Choose a word from the word_list.
-    chosen_word = [*random.choice(words.word_list).lower()] # the * unpacks the string into characters.
     # print(f"the solution is {chosen_word}")
     
     # Set initial display
@@ -17,54 +18,70 @@ def main():
     global lives
     global hangman
     global letters_used
+    global chosen_topic
     
-    display = []
-    for _ in chosen_word:
-        display.append("_")
-    lives = 6
-    hangman = figures.stages
-    letters_used=[]
-
-    printDisplay()
-                
-    while "_" in display:
-        # Get user guess.
-        guess=getGuess()
-        letters_used.append(guess)
-            
-        # Check if the guess is correct.
-        new_display = display.copy()
-        for i in range(len(chosen_word)):
-            if chosen_word[i] in "aàãaá":
-                letter_to_check = "a"
-            elif chosen_word[i] in "eéèê":
-                letter_to_check = "e"
-            elif chosen_word[i] in "iíìî":
-                letter_to_check = "i"
-            elif chosen_word[i] in "oóòõô":
-                letter_to_check = "o"
-            elif chosen_word[i] in "uúùû":
-                letter_to_check = "u"
-            elif chosen_word[i] in "cç":
-                letter_to_check = "c"
+    new_game = True
+    while new_game:
+        # Choose a word from the word_list.
+        keys = list(word_list.keys())
+        chosen_topic = random.choice(keys)
+        chosen_word = [*random.choice(word_list[chosen_topic]).lower()] # the * unpacks the string into characters.
+        cls()
+        display = []
+        for char in chosen_word:
+            print(char not in alphabet)
+            print(char not in "àãáéèêíìîóòõôúùûç")
+            if not any([char in alphabet,char not in "àãáéèêíìîóòõôúùûç"]):
+                display.append(char)
             else:
-                letter_to_check = chosen_word[i]
-                
-            if letter_to_check == guess:
-                new_display[i] = chosen_word[i]
-        if display == new_display: # i.e. No changes were made to the previous display, so the guess is wrong.
-            print("\nHipótese errada.\n")
-            lives -= 1
-        else:
-            print("\nBoa jogada!\n")
-            display=new_display
+                display.append("_")
+        lives = 6
+        hangman = figures.stages
+        letters_used=[]
+
         printDisplay()
-        if lives == 0:
-            break
-    if lives > 0:
-        print("\nParabéns! Ganhaste!\n")
-    else:
-        print(f"\nPerdeste. A palavra certa era {''.join(chosen_word)}.\nTenta outra vez.\n")
+        
+        while "_" in display:
+            # Get user guess.
+            guess=getGuess()
+            letters_used.append(guess)
+                
+            # Check if the guess is correct.
+            new_display = display.copy()
+            for i in range(len(chosen_word)):
+                if chosen_word[i] in "aàãaá":
+                    letter_to_check = "a"
+                elif chosen_word[i] in "eéèê":
+                    letter_to_check = "e"
+                elif chosen_word[i] in "iíìî":
+                    letter_to_check = "i"
+                elif chosen_word[i] in "oóòõô":
+                    letter_to_check = "o"
+                elif chosen_word[i] in "uúùû":
+                    letter_to_check = "u"
+                elif chosen_word[i] in "cç":
+                    letter_to_check = "c"
+                else:
+                    letter_to_check = chosen_word[i]
+                    
+                if letter_to_check == guess:
+                    new_display[i] = chosen_word[i]
+            if display == new_display: # i.e. No changes were made to the previous display, so the guess is wrong.
+                print("\nHipótese errada.\n")
+                lives -= 1
+            else:
+                print("\nBoa jogada!\n")
+                display=new_display
+            printDisplay()
+            if lives == 0:
+                break
+        if lives > 0:
+            print("\nParabéns! Ganhaste!\n")
+        else:
+            print(f"\nPerdeste. A palavra certa era {''.join(chosen_word)}.\nTenta outra vez.\n")
+        new_game=set_y_or_n("\nQueres continuar a jogar? (Y/N)\n")
+    cls()
+    input("Obrigado por jogar ao Hangman!")
 
 def getGuess():
     while True:
@@ -87,13 +104,9 @@ def printDisplay():
     cls()
     print(hangman[lives])
     print(" ".join(display),"\n")
+    print(f"Tópico:\n{chosen_topic}\n")
     if len(letters_used) > 0:
         print(f"Letras usadas:\n{' '.join(letters_used)}")
-
-import os
-def cls():
-    os.system('cls' if os.name=='nt' else 'clear') #check OS and gives the proper command
-cls()
 
 if __name__ == "__main__":
     main()
