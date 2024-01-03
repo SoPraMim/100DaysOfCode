@@ -26,12 +26,13 @@ def main():
         keys = list(word_list.keys())
         chosen_topic = random.choice(keys)
         chosen_word = [*random.choice(word_list[chosen_topic]).lower()] # the * unpacks the string into characters.
+
         cls()
         display = []
         for char in chosen_word:
-            print(char not in alphabet)
-            print(char not in "àãáéèêíìîóòõôúùûç")
-            if not any([char in alphabet,char not in "àãáéèêíìîóòõôúùûç"]):
+            #print(char in alphabet)
+            #print(char in "àãáéèêíìîóòõôúùûç")
+            if not any([char in alphabet,char in "àãáéèêíìîóòõôúùûç"]):
                 display.append(char)
             else:
                 display.append("_")
@@ -82,6 +83,7 @@ def main():
         new_game=set_y_or_n("\nQueres continuar a jogar? (Y/N)\n")
     cls()
     input("Obrigado por jogar ao Hangman!")
+    cls()
 
 def getGuess():
     while True:
