@@ -14,3 +14,5 @@ This is a commpilation of my resolution of the projects from the 100 Days of Cod
 * Day 10 - Calculator
 * Day 11 - Blackjack Simulator
 * Day 12 - The Number Game
+* Day 13 - Debbuging
+* Day 14 - Higher or Lower
