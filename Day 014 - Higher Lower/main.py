@@ -34,6 +34,7 @@ def main():
             return 'a'
         else:
             return 'b'
+    
     # Welcome Screen
     cls()
     print(logo)

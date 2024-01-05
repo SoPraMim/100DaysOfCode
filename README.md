@@ -16,3 +16,4 @@ This is a commpilation of my resolution of the projects from the 100 Days of Cod
 * Day 12 - The Number Game
 * Day 13 - Debbuging
 * Day 14 - Higher or Lower
+* Day 15 - Coffee Machine
