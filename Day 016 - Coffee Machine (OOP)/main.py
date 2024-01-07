@@ -5,7 +5,7 @@ def main():
     from money_machine import MoneyMachine
     from GenericFunctions import cls
     
-    # Global Variables
+    # Global Variables/Objects
     menu = Menu()
     coffee_maker = CoffeeMaker()
     money_machine = MoneyMachine()
