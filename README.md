@@ -18,3 +18,5 @@ This is a commpilation of my resolution of the projects from the 100 Days of Cod
 * Day 14 - Higher or Lower
 * Day 15 - Coffee Machine
 * Day 16 - Coffee Machine (OOP)
+* Day 17 - Quiz Game
+* Day 18 - Turtle
