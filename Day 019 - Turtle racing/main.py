@@ -26,7 +26,7 @@ def main():
         return turtles
 
     def start_race():
-        is_race_on = True
+        is_race_on = True   
         while is_race_on:
             for turtle in turtles:
                 turtle.forward(random.randint(0,10))
