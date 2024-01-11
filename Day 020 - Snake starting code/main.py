@@ -2,7 +2,6 @@ def main():
     # Imports
     from turtle import Screen
     from snake import Snake
-    from food import Food
     import time
     
     # Global variables/objects
@@ -26,7 +25,6 @@ def main():
 
     # Initialize program   
     snake = Snake()
-    food = Food()
     screen.update()
 
     # Listeners
@@ -50,6 +48,7 @@ def main():
         screen.update()
         print(snake.snake_segments[0].pos())
         print(snake.is_in_screen())
+        
         
     
     # Terminate

@@ -30,6 +30,14 @@ class Snake():
         for i in range(len(self.snake_segments)-1,0,-1):
             self.snake_segments[i].goto(self.snake_segments[i-1].pos())
         self.head.forward(MOVE_DISTANCE)
+        if self.head.xcor() > 290:
+            self.head.setx(-280)
+        elif self.head.xcor() < -290:
+            self.head.setx(280)
+        elif self.head.ycor() > 290:
+            self.head.sety(-280)
+        elif self.head.ycor() < -290:
+            self.head.sety(280)
     
     def heading(self):
         return self.head.heading()
