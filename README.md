@@ -12,11 +12,15 @@ This is a commpilation of my resolution of the projects from the 100 Days of Cod
 * [Day 8 - Caeser Cypher](https://github.com/SoPraMim/100DaysOfCode/tree/main/Day%20001%20-%20010/Day%20008%20-%20Caeser%20cypher)
 * [Day 9 - Silent Auction](https://github.com/SoPraMim/100DaysOfCode/tree/main/Day%20001%20-%20010/Day%20009%20-%20Silent%20auction)
 * [Day 10 - Calculator](https://github.com/SoPraMim/100DaysOfCode/tree/main/Day%20001%20-%20010/Day%20010%20-%20Calculator)
-* Day 11 - Blackjack Simulator
-* Day 12 - The Number Game
-* Day 13 - Debbuging
-* Day 14 - Higher or Lower
-* Day 15 - Coffee Machine
-* Day 16 - Coffee Machine (OOP)
-* Day 17 - Quiz Game
-* Day 18 - Turtle
+* [Day 11 - Blackjack Simulator](https://github.com/SoPraMim/100DaysOfCode/tree/main/Day%20011%20-%20020/Day%20011%20-%20Blackjack%20Simulator)
+* [Day 12 - The Number Game](https://github.com/SoPraMim/100DaysOfCode/tree/main/Day%20011%20-%20020/Day%20012%20-%20The%20Number%20Game)
+* [Day 13 - Debbuging](https://github.com/SoPraMim/100DaysOfCode/tree/main/Day%20011%20-%20020/Day%20013%20-%20Debbuging)
+* [Day 14 - Higher or Lower](https://github.com/SoPraMim/100DaysOfCode/tree/main/Day%20011%20-%20020/Day%20014%20-%20Higher%20Lower)
+* [Day 15 - Coffee Machine](https://github.com/SoPraMim/100DaysOfCode/tree/main/Day%20011%20-%20020/Day%20015%20-%20Coffee%20Machine)
+* [Day 16 - Coffee Machine (OOP)]('https://github.com/SoPraMim/100DaysOfCode/tree/main/Day%20011%20-%20020/Day%20016%20-%20Coffee%20Machine%20(OOP)')
+* [Day 17 - Quiz Game](https://github.com/SoPraMim/100DaysOfCode/tree/main/Day%20011%20-%20020/Day%20017%20-%20Quiz%20Game)
+* [Day 18 - Turtle](https://github.com/SoPraMim/100DaysOfCode/tree/main/Day%20011%20-%20020/Day%20018%20-%20Turtle)
+* [Day 19 - Turtle racing](https://github.com/SoPraMim/100DaysOfCode/tree/main/Day%20011%20-%20020/Day%20019%20-%20Turtle%20racing)
+* [Day 20 - Snake starting code](https://github.com/SoPraMim/100DaysOfCode/tree/main/Day%20011%20-%20020/Day%20020%20-%20Snake%20starting%20code)
+* Day 21 - Snake complete
+* Day 22 - Pong
