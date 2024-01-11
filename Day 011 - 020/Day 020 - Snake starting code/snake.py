@@ -27,21 +27,30 @@ class Snake():
     def heading(self):
         return self.head.heading()
     
+    def setheading(self,angle):
+        self.head.setheading(angle)
+        
+    def pos(self):
+        coordinates = []
+        for segment in self.snake_segments:
+            coordinates.append(segment.pos())
+        return coordinates
+    
     def set_orientation_up(self):
         if self.snake_segments[1].ycor() != self.head.ycor() + MOVE_DISTANCE :
-            self.head.setheading(90)
+            self.setheading(90)
         
     def set_orientation_right(self):
         if self.snake_segments[1].xcor() != self.head.xcor() + MOVE_DISTANCE :
-            self.head.setheading(0)
+            self.setheading(0)
         
     def set_orientation_down(self):
         if self.snake_segments[1].ycor() != self.head.ycor() - MOVE_DISTANCE :
-            self.head.setheading(270)
+            self.setheading(270)
         
     def set_orientation_left(self):
         if self.snake_segments[1].xcor() != self.head.xcor() - MOVE_DISTANCE :
-            self.head.setheading(180)
+            self.setheading(180)
         
     def is_in_screen(self):
         x,y = self.head.pos()

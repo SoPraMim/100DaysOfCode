@@ -49,7 +49,7 @@ class Game():
     def break_loop(self):
         self.running = False
     
-    def start_game(self):         
+    def start_game(self,snake=None,food=None):         
         # Initialize Game   
         self.running = True
         self.clear_screen()
