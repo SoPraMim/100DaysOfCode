@@ -13,11 +13,11 @@ class CarManager:
     def __init__(self):
         self.cars = []
         self.car_speed = STARTING_MOVE_DISTANCE
-        for i in range(NUMBER_OF_CARS):
+        for _ in range(NUMBER_OF_CARS):
             self.__create_a_car()
             
     def __create_a_car(self):
-        car = __Car()
+        car = Car()
         if car.collides_with_other_cars(self.cars):
             self.__create_a_car()
         else:
@@ -45,7 +45,7 @@ class CarManager:
         else:
             return False
             
-class __Car(Turtle):
+class Car(Turtle):
     def __init__(self, shape: str = "square", undobuffersize: int = 1000, visible: bool = True) -> None:
         super().__init__(shape, undobuffersize, visible)
         self.shapesize(stretch_len=2)
