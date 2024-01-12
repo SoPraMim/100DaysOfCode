@@ -48,7 +48,5 @@ while game_running:
     elif ball.xcor() < -450:
         ball.reset_position()
         scoreboard.add_point_player1()
-        
-
 
 screen.mainloop()
