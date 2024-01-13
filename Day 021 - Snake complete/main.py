@@ -10,7 +10,7 @@ class Game():
         self.screen = Screen()
         self.initial_level = 5
         self.running = False
-        self.scoreboard = None
+        self.scoreboard = Scoreboard()
         
         # Create Screen
         self.screen.setup(width=600, height = 600)
@@ -56,7 +56,8 @@ class Game():
         
         snake = Snake()
         food = Food()
-        self.scoreboard = Scoreboard()
+        self.scoreboard.reset_score()
+        self.scoreboard.update()
         self.screen.update()
         
         # Listeners
@@ -109,7 +110,12 @@ class Game():
     def end_game(self):
         """End the game and show the 'Game Over' window."""
         self.running = False
+        if self.scoreboard.score > self.scoreboard.hi_score:
+            self.scoreboard.update_hi_score()
+            self.scoreboard.update()
         self.scoreboard.game_over()
+        self.screen.update()
+
             
 
     def turn_off_listeners(self):

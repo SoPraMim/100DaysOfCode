@@ -1,4 +1,6 @@
 from turtle import Turtle
+from typing import Any
+import os
 
 FONTNAME = "Arial"
 FONTSIZE = 16
@@ -15,16 +17,17 @@ class Scoreboard(Turtle):
         """Create the initial scoreboard."""
         super().__init__(shape, undobuffersize, visible)
         self.score = 0
+        self.hi_score = 0
+        self.read_hi_score()
         self.hideturtle()
         self.penup()
-        self.goto(SCOREBOARD_POSITION)
         self.color("white")
-        self.update()
                 
     def update(self):
         """Update the scoreboard to display the score."""
         self.clear()
-        self.write(arg=f"Score: {self.score}",move=False,align="center",font=(FONTNAME,FONTSIZE,FONTTYPE))
+        self.goto(SCOREBOARD_POSITION)
+        self.write(arg=f"Score: {self.score}   High Score: {self.hi_score}",move=False,align="center",font=(FONTNAME,FONTSIZE,FONTTYPE))
            
     def add_points(self,points):
         """Add points to the current score count."""
@@ -37,5 +40,20 @@ class Scoreboard(Turtle):
         self.write(arg="Game Over",move=False,align="center",font=(GAMEOVER_FONTNAME[0],GAMEOVER_FONTSIZE[0],GAMEOVER_FONTTYPE[0]))
         self.goto(GAMEOVER_POSITION[1])
         self.write(arg=f"Score: {self.score}",move=False,align="center",font=(GAMEOVER_FONTNAME[1],GAMEOVER_FONTSIZE[1],GAMEOVER_FONTTYPE[1]))
-
-
+    
+    def reset_score(self):
+        self.score = 0
+        
+    def update_hi_score(self):
+        self.hi_score = self.score
+        with open("Day 021 - Snake complete/data.txt","w") as file:
+            file.write(str(self.hi_score))
+        
+    def read_hi_score(self):
+        file_path = "Day 021 - Snake complete/data.txt"
+        try:
+            with open(file_path) as file:
+                self.hi_score = int(file.read())
+        except:
+            with open(file_path, "w") as file:
+                file.write("0")
