@@ -2,8 +2,9 @@ def main():
     from turtle import Turtle, Screen
     import pandas as pd
 
-    STATES = "C:/Git/100DaysOfCode/Day 025 - US States/50_states.csv"
-    IMAGE = "Day 025 - US States/blank_states_img.gif"
+    ROOT = "Day 021 - 030/Day 025 - US States/"
+    STATES = ROOT + "50_states.csv"
+    IMAGE = ROOT + "blank_states_img.gif"
 
     screen = Screen()
     turtle = Turtle()
@@ -41,7 +42,7 @@ def main():
             turtle.goto(0,0)
             turtle.write("        Congratulations.\nYou guessed all 50 states!",align="center", font=("Arial",24,"bold"))
             
-    missing_states = data.state[~data.state.isin(states_added)]
+    missing_states = data.state[~data.state.isin(states_added)] # The "~" inverts the selection. 
     print(missing_states)
             
     screen.mainloop()

@@ -24,7 +24,9 @@
 #{"A": "Alfa", "B": "Bravo"}
 import pandas as pd
 
-data = pd.read_csv("Day 026 - NATO Alphabet/nato_phonetic_alphabet.csv")
+ROOT = "Day 021 - 030\Day 026 - NATO Alphabet/"
+
+data = pd.read_csv(ROOT + "nato_phonetic_alphabet.csv")
 nato_alphabet = {row.letter:row.code for (_,row) in data.iterrows()}
 # print(nato_alphabet)
 

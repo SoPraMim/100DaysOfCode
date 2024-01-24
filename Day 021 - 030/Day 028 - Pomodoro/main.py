@@ -1,6 +1,7 @@
 from tkinter import *
 
 # ---------------------------- CONSTANTS ------------------------------- #
+ROOT = "Day 021 - 030/Day 028 - Pomodoro/"
 PINK = "#e2979c"
 RED = "#e7305b"
 GREEN = "#9bdeac"
@@ -76,7 +77,7 @@ canvas = Canvas(width=200,
                 height=224,
                 highlightthickness=0,
                 bg=YELLOW)
-img = PhotoImage(file="./Day 028 - Pomodoro/tomato.png")
+img = PhotoImage(file=ROOT + "tomato.png")
 canvas.create_image(100, 112, image= img)
 timer_text = canvas.create_text(100,130, text="00:00", fill="white", font=(FONT_NAME, 25, "bold"))
 canvas.grid(column=1,
