@@ -4,8 +4,9 @@ from tkinter import messagebox
 import pandas as pd
 import pyperclip
 
-#
-DATA_LOCATION = "Day 030 - Password Manager 2/password_bank.json"
+# ---------------------------- Variables ---------------------------- #
+ROOT = "Day 021 - 030/Day 030 - Password Manager 2/"
+DATA_LOCATION = ROOT + "password_bank.json"
 
 
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
@@ -89,7 +90,7 @@ window.config(padx=50,
 # Canvas
 canvas = Canvas(width=200, height=200)
 
-img = PhotoImage(file="Day 030 - Password Manager 2/logo.png")
+img = PhotoImage(file= ROOT + "logo.png")
 canvas.create_image(100, 100, image= img)
 canvas.grid(column=1,
             row=0,

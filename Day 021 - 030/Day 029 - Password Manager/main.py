@@ -4,6 +4,9 @@ from tkinter import messagebox
 import pandas as pd
 import pyperclip
 
+# ---------------------------- Variables ---------------------------- #
+ROOT = "Day 021 - 030/Day 029 - Password Manager"
+
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 def generate_password():
         #Password Generator Project
@@ -35,7 +38,7 @@ def generate_password():
 
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 def save_password():
-    file_location = "Day 029 - Password Manager/password_bank.json"
+    file_location = ROOT + "password_bank.json"
 
     if messagebox.askyesno(title=website_input.get(), message ="Save password?"):
         try:
@@ -63,7 +66,7 @@ if __name__ == "__main__":
     canvas = Canvas(width=200,
                     height=200)
 
-    img = PhotoImage(file="Day 029 - Password Manager/logo.png")
+    img = PhotoImage(file= ROOT + "logo.png")
     canvas.create_image(100, 100, image= img)
     canvas.grid(column=1, row=0, sticky=W+E+N+S)
 

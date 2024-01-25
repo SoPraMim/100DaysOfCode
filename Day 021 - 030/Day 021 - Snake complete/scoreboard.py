@@ -12,6 +12,8 @@ GAMEOVER_FONTSIZE = [54,40]
 GAMEOVER_FONTTYPE = ["bold","bold"]
 GAMEOVER_POSITION = [(0,20), (0,-40)]
 
+ROOT = "Day 021 - 030/Day 021 - Snake complete/"
+
 class Scoreboard(Turtle):
     def __init__(self, shape: str = "classic", undobuffersize: int = 1000, visible: bool = True) -> None:
         """Create the initial scoreboard."""
@@ -46,11 +48,11 @@ class Scoreboard(Turtle):
         
     def update_hi_score(self):
         self.hi_score = self.score
-        with open("Day 021 - Snake complete/data.txt","w") as file:
+        with open(ROOT + "data.txt","w") as file:
             file.write(str(self.hi_score))
         
     def read_hi_score(self):
-        file_path = "Day 021 - Snake complete/data.txt"
+        file_path = ROOT + "data.txt"
         try:
             with open(file_path) as file:
                 self.hi_score = int(file.read())
