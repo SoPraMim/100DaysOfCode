@@ -17,11 +17,21 @@ This is a commpilation of my resolution of the projects from the 100 Days of Cod
 * [Day 13 - Debbuging](https://github.com/SoPraMim/100DaysOfCode/tree/main/Day%20011%20-%20020/Day%20013%20-%20Debbuging)
 * [Day 14 - Higher or Lower](https://github.com/SoPraMim/100DaysOfCode/tree/main/Day%20011%20-%20020/Day%20014%20-%20Higher%20Lower)
 * [Day 15 - Coffee Machine](https://github.com/SoPraMim/100DaysOfCode/tree/main/Day%20011%20-%20020/Day%20015%20-%20Coffee%20Machine)
-* [Day 16 - Coffee Machine (OOP)]('https://github.com/SoPraMim/100DaysOfCode/tree/main/Day%20011%20-%20020/Day%20016%20-%20Coffee%20Machine%20(OOP)')
+* [Day 16 - Coffee Machine (OOP)](https://github.com/SoPraMim/100DaysOfCode/tree/main/Day%20011%20-%20020/Day%20016%20-%20Coffee%20Machine%20(OOP)')
 * [Day 17 - Quiz Game](https://github.com/SoPraMim/100DaysOfCode/tree/main/Day%20011%20-%20020/Day%20017%20-%20Quiz%20Game)
 * [Day 18 - Turtle](https://github.com/SoPraMim/100DaysOfCode/tree/main/Day%20011%20-%20020/Day%20018%20-%20Turtle)
 * [Day 19 - Turtle racing](https://github.com/SoPraMim/100DaysOfCode/tree/main/Day%20011%20-%20020/Day%20019%20-%20Turtle%20racing)
 * [Day 20 - Snake starting code](https://github.com/SoPraMim/100DaysOfCode/tree/main/Day%20011%20-%20020/Day%20020%20-%20Snake%20starting%20code)
-* Day 21 - Snake complete
-* Day 22 - Pong
-* Day 23 - Turtle crossing
+* [Day 21 - Snake complete](https://github.com/SoPraMim/100DaysOfCode/tree/main/Day%20021%20-%20030/Day%20021%20-%20Snake%20complete)
+* [Day 22 - Pong](https://github.com/SoPraMim/100DaysOfCode/tree/main/Day%20021%20-%20030/Day%20022%20-%20Pong)
+* [Day 23 - Turtle crossing](https://github.com/SoPraMim/100DaysOfCode/tree/main/Day%20021%20-%20030/Day%20023%20-%20Turtle%20crossing)
+* [Day 24 - Mail Merge](https://github.com/SoPraMim/100DaysOfCode/tree/main/Day%20021%20-%20030/Day%20024%20-%20Mail%20Merge)
+* [Day 25 - US States Quiz](https://github.com/SoPraMim/100DaysOfCode/tree/main/Day%20021%20-%20030/Day%20025%20-%20US%20States)
+* [Day 26 - NATO Alphabet converter](https://github.com/SoPraMim/100DaysOfCode/tree/main/Day%20021%20-%20030/Day%20026%20-%20NATO%20Alphabet)
+* [Day 27 - Miles to km converter](https://github.com/SoPraMim/100DaysOfCode/tree/main/Day%20021%20-%20030/Day%20027%20-%20Miles%20converter)
+* [Day 28 - Pomodoro timer](https://github.com/SoPraMim/100DaysOfCode/tree/main/Day%20021%20-%20030/Day%20028%20-%20Pomodoro)
+* [Day 29 - Password Manager (part 1)](https://github.com/SoPraMim/100DaysOfCode/tree/main/Day%20021%20-%20030/Day%20029%20-%20Password%20Manager)
+* [Day 30 - Password Manager (part 2)](https://github.com/SoPraMim/100DaysOfCode/tree/main/Day%20021%20-%20030/Day%20030%20-%20Password%20Manager%202)]
+* [Day 31 - Language Flash Cards](https://github.com/SoPraMim/100DaysOfCode/tree/main/Day%20031%20-%20040/Day%20031%20-%20Flash%20Card%20Game)
+* [Day 32 - Birthday wisher](https://github.com/SoPraMim/100DaysOfCode/tree/main/Day%20031%20-%20040/Day%20032%20-%20Birthday%20Wisher)
+* Day 33 - ISS Overhear Notifier
