@@ -23,12 +23,10 @@ def set_y_or_n(text):
         true_or_false = False
     return true_or_false
 
-def send_mail(subject, body, recipients):
-    """Send an email using the andrediastest@gmail.com account."""
-    if not isinstance(recipients,list):
-        raise TypeError("Recipients must be a list.")
+def send_mail(subject: str, body: str, recipients: list):
+    """Send an email using the test email account."""
     user = os.environ.get("FROM_TEST_EMAIL")
-    password = os.environ.get("TEST_EMAIL_PASSWORD")
+    password = os.environ.get("FROM_TEST_EMAIL_PASSWORD")
     smtp_server = "smtp.gmail.com"
     smtp_port = 465
 
@@ -42,6 +40,6 @@ def send_mail(subject, body, recipients):
         smtp_connection.login(user=user, password=password)
         smtp_connection.sendmail(
             from_addr=user,
-            to_addrs= msg['To'],
+            to_addrs=msg['To'],
             msg=msg.as_string()
         )

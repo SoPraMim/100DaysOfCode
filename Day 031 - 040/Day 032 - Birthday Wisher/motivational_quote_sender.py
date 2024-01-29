@@ -3,16 +3,17 @@ import datetime as dt
 import smtplib
 from email.mime.text import MIMEText
 import random
+import os
 
 # --- Variables --- #
 ROOT = "Day 031 - 040/Day 032 - Birthday Wisher/"
-recipients = ['andrediastest@yahoo.com']
+recipients = [os.environ.get("TO_TEST_EMAIL")]
 
 # --- Functions --- #
 def send_mail(subject, body, recipients):
     """Send an email using the andrediastest@gmail.com account."""
-    user = "andrediastest@gmail.com"
-    password = "qsua mtfd klmx jgfz"
+    user = os.environ.get("FROM_TEST_EMAIL")
+    password = os.environ.get("FROM_TEST_EMAIL_PASSWORD")
     smtp_server = "smtp.gmail.com"
     smtp_port = 465
 
@@ -26,7 +27,7 @@ def send_mail(subject, body, recipients):
         smtp_connection.login(user=user, password=password)
         smtp_connection.sendmail(
             from_addr=user,
-            to_addrs="andrediastest@yahoo.com",
+            to_addrs=os.environ.get("TO_TEST_EMAIL"),
             msg=msg.as_string()
         )
         
