@@ -1,5 +1,5 @@
 # 100DaysOfCode
-This is a commpilation of my resolution of the projects from the 100 Days of Code: The Complete Python Pro Bootcamp for 2023 from Udemy. Some of of the problems may be different from the solutions as I apply my own know-how to further optimize the code.
+This is a compilation of my resolution of the projects from the 100 Days of Code: The Complete Python Pro Bootcamp for 2023 from Udemy. Some of of the problems may be different from the solutions as I apply my own know-how to further optimize the code.
 
 ## Projects:
 * [Day 1 - Band name generator](https://github.com/SoPraMim/100DaysOfCode/tree/main/Day%20001%20-%20010/Day%20001%20-%20Band%20Name%20Generator)
