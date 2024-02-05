@@ -7,7 +7,7 @@ RECIPIENTS = [os.environ.get("TO_TEST_EMAIL")]
 
 class NotificationManager:
     """This class is responsible for sending notifications with the deal flight details."""
-    def __init__(self,flights,user:dict) -> None:
+    def __init__(self,flights:list[FlightData],user:dict) -> None:
         self.flights = flights
         self.recipients = [user["eMail"]]
         

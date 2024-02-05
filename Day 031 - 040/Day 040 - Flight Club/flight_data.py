@@ -1,10 +1,3 @@
-
-class SearchFlightData:
-    def __init__(self, iata_code_from, iata_code_to, max_price) -> None:
-        self.city_from = iata_code_from
-        self.city_to = iata_code_to
-        self.max_price = max_price
-        
 class FlightData:
     def __init__(self,search_result:dict) -> None:
         data = search_result["data"][0]
@@ -20,5 +13,5 @@ class FlightData:
         self.utc_departure_time = departure[1][:5]
         
         arrival = data["utc_arrival"].split("T")
-        self.utc_arrival_date = arrival[0]
-        self.utc_arrival_time = arrival[1][:5]
+        self.utc_departure_date = arrival[0]
+        self.utc_departure_time = arrival[1][:5]
