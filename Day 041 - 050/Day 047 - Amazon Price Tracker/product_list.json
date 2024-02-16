@@ -1,0 +1,23 @@
+{
+    "Instant Pot": {
+        "url": "https://www.amazon.com/dp/B075CYMYK6?psc=1&ref_=cm_sw_r_cp_ud_ct_FM9M699VKHTT47YD50Q6",
+        "price": {
+            "2024-02-16": 99.95
+        },
+        "reference_price": 90.0
+    },
+    "Echo Dot": {
+        "url": "https://www.amazon.de/echo-dot/dp/B09B9CX8PW/ref=lp_26208164031_1_1?pf_rd_p=b7b797ed-078a-4a5b-91a4-303c74775994&pf_rd_r=90ERZT8D81K0R29XHBPY&sbo=RZvfv%2F%2FHxDF%2BO5021pAnSA%3D%3D",
+        "price": {
+            "2024-02-16": 68.26
+        },
+        "reference_price": 40.0
+    },
+    "bed sheets": {
+        "url": "https://www.amazon.de/-/en/Amazon-Basics-Microfibre-Lightweight-Wrinkle/dp/B00Q4TMOCS/?_encoding=UTF8&pd_rd_w=F1Nd2&content-id=amzn1.sym.f938f8b7-398f-4ac5-9448-2af71f834233%3Aamzn1.symc.afd86303-4a72-4e34-8f6b-19828329e602&pf_rd_p=f938f8b7-398f-4ac5-9448-2af71f834233&pf_rd_r=G11YQ7GXKTV83ZCER2VX&pd_rd_wg=Fyisi&pd_rd_r=138c3404-4f9c-4b39-9b82-dc000294c022&ref_=pd_gw_ci_mcx_mr_hp_atf_m",
+        "price": {
+            "2024-02-16": 12.96
+        },
+        "reference_price": 15.0
+    }
+}

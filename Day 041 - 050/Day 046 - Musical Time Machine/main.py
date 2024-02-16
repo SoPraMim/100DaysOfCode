@@ -64,8 +64,7 @@ def get_songs(date:datetime):
     
 # --- Program --- #
 cls()
-# date = get_date("Which date do you want to travel to? (YYYY-MM-DD)\n")        #  Uncomment for final version
-date = datetime(year=2000, month=8, day=12)                                     #  Remove for final version
+date = get_date("Which date do you want to travel to? (YYYY-MM-DD)\n")
 songs = get_songs(date)
 spotify = authenticate_spotify()
 # Search URI
@@ -90,7 +89,6 @@ playlist=spotify.user_playlist_create(
 )
 
 # Add songs to playlist
-# for i in range(len(tracks_uri)):
 spotify.user_playlist_add_tracks(
     user=user_id,
     playlist_id=playlist['id'],
