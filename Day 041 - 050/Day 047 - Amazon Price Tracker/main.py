@@ -21,7 +21,7 @@ except FileNotFoundError:
 item_manager = ItemManager()
 
 
-#TODO 2 - Update the price for all products
+# 2 - Update the price for all products
 item_list = item_manager.get_items()
 items_to_notify = []
 for item in item_list:
@@ -29,7 +29,7 @@ for item in item_list:
     if price < item_manager.get_reference_price(item):
         items_to_notify.append(item)
              
-#TODO 3 - Send e-mail with items to notify.
+# 3 - Send e-mail with items to notify.
 recipients = [os.environ.get("TO_TEST_EMAIL")]
 if len(items_to_notify) > 0:
     if len(items_to_notify) > 1:

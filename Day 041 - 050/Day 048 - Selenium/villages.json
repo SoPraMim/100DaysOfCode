@@ -1,0 +1,168 @@
+{
+    "SPM 01": {
+        "resources_layout": {
+            "1": {
+                "resource": "Woodcutter",
+                "level": 5
+            },
+            "2": {
+                "resource": "Cropland",
+                "level": 4
+            },
+            "3": {
+                "resource": "Woodcutter",
+                "level": 5
+            },
+            "4": {
+                "resource": "Iron Mine",
+                "level": 4
+            },
+            "5": {
+                "resource": "Clay Pit",
+                "level": 4
+            },
+            "6": {
+                "resource": "Clay Pit",
+                "level": 4
+            },
+            "7": {
+                "resource": "Iron Mine",
+                "level": 4
+            },
+            "8": {
+                "resource": "Cropland",
+                "level": 3
+            },
+            "9": {
+                "resource": "Cropland",
+                "level": 3
+            },
+            "10": {
+                "resource": "Iron Mine",
+                "level": 4
+            },
+            "11": {
+                "resource": "Iron Mine",
+                "level": 4
+            },
+            "12": {
+                "resource": "Cropland",
+                "level": 3
+            },
+            "13": {
+                "resource": "Cropland",
+                "level": 3
+            },
+            "14": {
+                "resource": "Woodcutter",
+                "level": 5
+            },
+            "15": {
+                "resource": "Cropland",
+                "level": 3
+            },
+            "16": {
+                "resource": "Clay Pit",
+                "level": 4
+            },
+            "17": {
+                "resource": "Woodcutter",
+                "level": 4
+            },
+            "18": {
+                "resource": "Clay Pit",
+                "level": 4
+            }
+        },
+        "buildings_layout": {
+            "19": {
+                "building": "empty",
+                "level": 0
+            },
+            "20": {
+                "building": "empty",
+                "level": 0
+            },
+            "21": {
+                "building": "Academy",
+                "level": 2
+            },
+            "22": {
+                "building": "Smithy",
+                "level": 2
+            },
+            "23": {
+                "building": "empty",
+                "level": 0
+            },
+            "24": {
+                "building": "empty",
+                "level": 0
+            },
+            "25": {
+                "building": "empty",
+                "level": 0
+            },
+            "26": {
+                "building": "Main Building",
+                "level": 3
+            },
+            "27": {
+                "building": "empty",
+                "level": 0
+            },
+            "28": {
+                "building": "empty",
+                "level": 0
+            },
+            "29": {
+                "building": "Barracks",
+                "level": 3
+            },
+            "30": {
+                "building": "empty",
+                "level": 0
+            },
+            "31": {
+                "building": "Warehouse",
+                "level": 5
+            },
+            "32": {
+                "building": "Granary",
+                "level": 3
+            },
+            "33": {
+                "building": "empty",
+                "level": 0
+            },
+            "34": {
+                "building": "empty",
+                "level": 0
+            },
+            "35": {
+                "building": "Marketplace",
+                "level": 2
+            },
+            "36": {
+                "building": "empty",
+                "level": 0
+            },
+            "37": {
+                "building": "Cranny",
+                "level": 1
+            },
+            "38": {
+                "building": "empty",
+                "level": 0
+            },
+            "39": {
+                "building": "Rally Point",
+                "level": 1
+            },
+            "40": {
+                "building": "empty",
+                "level": 0
+            }
+        }
+    }
+}

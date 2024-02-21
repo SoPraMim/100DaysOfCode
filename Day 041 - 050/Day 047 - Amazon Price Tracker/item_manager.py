@@ -47,7 +47,7 @@ class ItemManager:
             
     def check_price(self,item:str) -> float:
         """Update the price for a given item."""
-        #TODO Web scraping to get price.
+        # Web scraping to get price.
         self.__validate_item(item)
         today = datetime.today()
         
