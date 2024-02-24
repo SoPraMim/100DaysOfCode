@@ -3,101 +3,101 @@
         "resources_layout": {
             "1": {
                 "resource": "Woodcutter",
-                "level": 5
+                "level": 7
             },
             "2": {
                 "resource": "Cropland",
-                "level": 4
+                "level": 6
             },
             "3": {
                 "resource": "Woodcutter",
-                "level": 5
+                "level": 7
             },
             "4": {
                 "resource": "Iron Mine",
-                "level": 4
+                "level": 6
             },
             "5": {
                 "resource": "Clay Pit",
-                "level": 4
+                "level": 7
             },
             "6": {
                 "resource": "Clay Pit",
-                "level": 4
+                "level": 6
             },
             "7": {
                 "resource": "Iron Mine",
-                "level": 4
+                "level": 6
             },
             "8": {
                 "resource": "Cropland",
-                "level": 3
+                "level": 5
             },
             "9": {
                 "resource": "Cropland",
-                "level": 3
+                "level": 5
             },
             "10": {
                 "resource": "Iron Mine",
-                "level": 4
+                "level": 6
             },
             "11": {
                 "resource": "Iron Mine",
-                "level": 4
+                "level": 6
             },
             "12": {
                 "resource": "Cropland",
-                "level": 3
+                "level": 5
             },
             "13": {
                 "resource": "Cropland",
-                "level": 3
+                "level": 5
             },
             "14": {
                 "resource": "Woodcutter",
-                "level": 5
+                "level": 7
             },
             "15": {
                 "resource": "Cropland",
-                "level": 3
+                "level": 5
             },
             "16": {
                 "resource": "Clay Pit",
-                "level": 4
+                "level": 6
             },
             "17": {
                 "resource": "Woodcutter",
-                "level": 4
+                "level": 6
             },
             "18": {
                 "resource": "Clay Pit",
-                "level": 4
+                "level": 6
             }
         },
         "buildings_layout": {
             "19": {
-                "building": "empty",
-                "level": 0
+                "building": "Embassy",
+                "level": 1
             },
             "20": {
-                "building": "empty",
-                "level": 0
+                "building": "Stable",
+                "level": 5
             },
             "21": {
                 "building": "Academy",
-                "level": 2
+                "level": 5
             },
             "22": {
                 "building": "Smithy",
-                "level": 2
+                "level": 3
             },
             "23": {
                 "building": "empty",
                 "level": 0
             },
             "24": {
-                "building": "empty",
-                "level": 0
+                "building": "Residence",
+                "level": 4
             },
             "25": {
                 "building": "empty",
@@ -105,7 +105,7 @@
             },
             "26": {
                 "building": "Main Building",
-                "level": 3
+                "level": 10
             },
             "27": {
                 "building": "empty",
@@ -117,7 +117,7 @@
             },
             "29": {
                 "building": "Barracks",
-                "level": 3
+                "level": 5
             },
             "30": {
                 "building": "empty",
@@ -125,11 +125,11 @@
             },
             "31": {
                 "building": "Warehouse",
-                "level": 5
+                "level": 7
             },
             "32": {
                 "building": "Granary",
-                "level": 3
+                "level": 7
             },
             "33": {
                 "building": "empty",
@@ -141,7 +141,7 @@
             },
             "35": {
                 "building": "Marketplace",
-                "level": 2
+                "level": 3
             },
             "36": {
                 "building": "empty",
@@ -149,7 +149,7 @@
             },
             "37": {
                 "building": "Cranny",
-                "level": 1
+                "level": 3
             },
             "38": {
                 "building": "empty",
@@ -157,7 +157,7 @@
             },
             "39": {
                 "building": "Rally Point",
-                "level": 1
+                "level": 3
             },
             "40": {
                 "building": "empty",

@@ -5,14 +5,16 @@ import os
 import json
 from target_manager import TargetManager
 from datetime import datetime, timedelta
+from typing import Callable
 
 ROOT = ""
 URL = "https://ts1.x1.international.travian.com/"
-WAIT_TIMER = 2
+WAIT_TIMER = 1
 
 class Travian:
     def __init__(self) -> None:
         self.driver = []
+        self.last_reset:datetime = None
         self.warehouse_capacity = 0
         self.granary_capacity = 0
         self.resources = {}
@@ -22,26 +24,40 @@ class Travian:
         self.active_city = None
         self.targets = TargetManager()
         self.available_troops = {}
+        self.queue = []
         
         self.login()
         self.load_villages()
         self.update_active_city()
         self.update_resources()
     
+    # --- Driver-Related Functions --- #
     def login(self):
         chrome_options = webdriver.ChromeOptions()
         chrome_options.add_experimental_option("detach", True)
 
         self.driver = webdriver.Chrome(options=chrome_options)
         self.driver.get(URL)
+        self.last_reset = datetime.now()
 
         # Login
         self.driver.find_element(By.CSS_SELECTOR,".account input").send_keys(os.environ.get("TRAVIAN_ACCOUNT"))
         self.driver.find_element(By.CSS_SELECTOR,".pass input").send_keys(os.environ.get("TRAVIAN_PASSWORD"))
         self.driver.find_element(By.CSS_SELECTOR,".loginButtonRow button").click()
         time.sleep(3)
+        
+    def refresh(self):
+        self.driver.refresh()
+        
+    def reset_driver(self):
+        self.driver.quit()
+        self.login()
+        
+    def get_last_reset(self):
+        return self.last_reset.strftime("%Y-%m-%d %H:%M:%S")
     
-    def export_villages(self):
+    # --- Village Management Functions --- #        
+    def save_villages(self):
         with open(f"{ROOT}villages.json","w") as file:
             json.dump(self.villages,file,indent=4)
             
@@ -76,19 +92,22 @@ class Travian:
             self.identify_buildings()
             self.driver.find_element(By.CSS_SELECTOR,"#sidebarBoxVillagelist .header .buttonsWrapper a").click()
             time.sleep(WAIT_TIMER)
-        self.export_villages()
-
-    def identify_fields(self):
-        village_name = self.update_active_city()
+        self.save_villages()
+        
+    def go_to_resources_view(self):
         self.driver.find_element(By.CSS_SELECTOR,".resourceView").click()
         time.sleep(WAIT_TIMER)
+        
+    def identify_fields(self):
+        village_name = self.update_active_city()
+        self.go_to_resources_view()
         for i in range(18):
             self.driver.find_element(By.CSS_SELECTOR,f".buildingSlot{i+1}").click()
             time.sleep(WAIT_TIMER)
             building_name = self.driver.find_element(By.CSS_SELECTOR,".titleInHeader")
             (resource,level) = building_name.text.split(" Level ")
             level = int(level)
-            if self.is_under_construction():
+            if self.__is_under_construction():
                 level += 1
             self.villages[village_name]["resources_layout"][str(i+1)] = {
                 "resource":resource,
@@ -97,10 +116,13 @@ class Travian:
             self.driver.find_element(By.CSS_SELECTOR,".resourceView").click()
             time.sleep(WAIT_TIMER)
             
-    def identify_buildings(self):
-        village_name = self.update_active_city()
+    def go_to_buildings_view(self):
         self.driver.find_element(By.CSS_SELECTOR,".buildingView").click()
         time.sleep(WAIT_TIMER)
+        
+    def identify_buildings(self):
+        village_name = self.update_active_city()
+        self.go_to_buildings_view()
         for i in range(22):
             try:
                 self.driver.find_element(By.CSS_SELECTOR,f"#villageContent .a{19+i}").click()
@@ -108,7 +130,7 @@ class Travian:
                 building = self.driver.find_element(By.CSS_SELECTOR,"h1").text
                 (building_name,level) = building.split(" Level ")
                 level = int(level)
-                if self.is_under_construction():
+                if self.__is_under_construction():
                     level += 1
                 self.villages[village_name]["buildings_layout"][str(19+i)] = {
                             'building': building_name,
@@ -123,7 +145,7 @@ class Travian:
                     'level': 0
                 }
                 
-    def is_under_construction(self):
+    def __is_under_construction(self):
         """Tests whether the currently selected building is under construction."""
         try:
             self.driver.find_element(By.CSS_SELECTOR,".underConstruction")
@@ -131,35 +153,40 @@ class Travian:
         except:
             return False
                 
-    def improve_building(self,building_name:str):
+    def improve_building(self,city_from:str, building_name:str):
         """Improves the building selected. If more than one building of the same name exists, improves the least developed one."""
         building_name = building_name.title()
-        building_id = self.query_building(building_name)
+        # if self.active_city != city_from:
+        #     self.go_to_city(city_from)
+        building_id = self.__query_building(building_name)
         if building_id is None:
             raise ValueError("Building not found.")
+        
         if building_name in ['Woodcutter','Clay Pit','Iron Mine','Cropland']:
             layout = "resources_layout"
-            self.driver.find_element(By.CSS_SELECTOR,".resourceView").click()
-            time.sleep(WAIT_TIMER)
+            self.go_to_resources_view()
             self.driver.find_element(By.CSS_SELECTOR,f".buildingSlot{building_id}").click()
             time.sleep(WAIT_TIMER)
             
         else:
             layout = "buildings_layout"
-            self.driver.find_element(By.CSS_SELECTOR,".buildingView").click()
-            time.sleep(WAIT_TIMER)
+            self.go_to_buildings_view()
             self.driver.find_element(By.CSS_SELECTOR,f"#villageContent .a{building_id}").click()
             time.sleep(WAIT_TIMER)
+            
         upgrade_button = self.driver.find_element(By.XPATH,f"/html/body/div[3]/div[3]/div[3]/div[2]/div/div/div[3]/div[3]/div[1]/button")
         text_to_check = " ".join(upgrade_button.text.split()[:3])
         if text_to_check == "Upgrade to level":
             upgrade_button.click()
             self.villages[self.active_city][layout][building_id]['level'] += 1
-            self.export_villages()
+            self.save_villages()
+            print(f"{building_name} in {city_from} has been improved")
+            return True
         else:
-            raise LookupError("Building cannot be upgraded")
+            print(f"{building_name} in {city_from} cannot be improved yet")
+            return False
         
-    def query_building(self,building_name:str):
+    def __query_building(self,building_name:str):
         """Returns the id no of the building name. If more than one building is found returns  the least developed one."""
         self.update_active_city()
         if building_name in ['Woodcutter','Clay Pit','Iron Mine','Cropland']:
@@ -195,7 +222,12 @@ class Travian:
         """Updates the active city."""
         self.active_city = self.driver.find_element(By.CSS_SELECTOR,".villageInput").get_attribute("value")
         return self.active_city
+    
+    def go_to_village(self,new_city:str):
+        #TODO Select a new village to control.
+        pass
 
+    # --- Attacks-Related Functions --- #    
     def add_target(self):
         village_from = self.active_city
         target_url = input("Copy-paste the url to the target:\n")
@@ -235,7 +267,7 @@ class Travian:
         
     def update_available_troops(self):
         """Updates the available troops in the city."""
-        rally_point_url = "https://ts1.x1.international.travian.com/build.php?id=39&gid=16&tt=1"
+        rally_point_url = "https://ts1.x1.international.travian.com/build.php?gid=16&tt=1&filter=3"
         if self.driver.current_url != rally_point_url:
             self.driver.get(rally_point_url)
             time.sleep(WAIT_TIMER)
@@ -261,11 +293,8 @@ class Travian:
             'Hero': troops[10],
         }
         return self.available_troops
-        
+    
     def farm_targets(self):
-        now = datetime.now()
-        print("_______________________________")
-        print(now.strftime('%Y-%m-%d %H:%M:%S'))
         for village in self.villages:
             for target in self.targets.get_targets(village):
                 if not self.__check_cooldown_over(target):
@@ -277,8 +306,9 @@ class Travian:
                 if target['target_type'] == 'oasis' and not self.__is_target_empty(target):
                     print(f"Attack from {village} to {target['coordinates']} not performed due to oasis being occupied.")
                     continue
-                self.attack_target(target)
+                self.attack_target(self.active_city,target)
                 print(f"Attack from {village} to {target['coordinates']} sent.")
+        return True
             
     def __has_enough_troops(self,target):
         self.update_available_troops()
@@ -299,9 +329,11 @@ class Travian:
         troop_info_element = self.driver.find_element(By.CSS_SELECTOR,"#troop_info")
         return "none" in troop_info_element.text
         
-    def attack_target(self,target:dict,attack_type:str="raid"):
+    def attack_target(self,city_from:str, target:dict,attack_type:str="raid"):
         """Send troops to target location."""
         self.driver.get("https://ts1.x1.international.travian.com/build.php?id=39&gid=16&tt=2")
+        # if self.active_city != city_from:
+        #     self.go_to_city(city_from)
         attack_value_codes = {
             "raid": "4",
             "normal":"3",
@@ -324,5 +356,88 @@ class Travian:
         self.driver.find_element(By.CSS_SELECTOR,f'[value="Confirm"]').click()
         self.targets.update_last_attack(village_from=self.active_city, target= target)
         time.sleep(WAIT_TIMER)
-
+        return True
+    
+    def improve_troop(self,city_from, troop:str):
+        # if self.update_active_city() != city_from:
+        #     self.go_to_village(city_from)
         
+        # go to smithy
+        building_id = self.__query_building("Smithy")
+        self.go_to_buildings_view()
+        self.driver.find_element(By.CSS_SELECTOR,f"#villageContent .a{building_id}").click()
+        time.sleep(WAIT_TIMER)
+        # look for the correct "improve troop" button and validate the improvement 
+        section = self.driver.find_elements(By.CSS_SELECTOR,".research")
+        for div in section:
+            if troop.title() in div.text:
+                troop_div = div
+        button = troop_div.find_element(By.CSS_SELECTOR,".information .cta button")
+        if "Improve" in button.text:
+            button.click()
+            print(f"{troop.title()} improved in {self.active_city}.")
+            time.sleep(WAIT_TIMER)
+            return True
+        else:
+            print(f"{troop.title()} in {city_from} cannot be improved yet.")
+            return False
+        
+    def find_crop(self,coordinates:tuple,radius:int, minimun_crops=9):
+        (coordinate_x, coordinate_y) = coordinates
+        for x in range(coordinate_x-radius, coordinate_x+radius+1, 1):
+            for y in range(coordinate_y-radius, coordinate_y+radius+1, 1):
+                self.driver.get(f"https://ts1.x1.international.travian.com/karte.php?x={x}&y={y}")
+                time.sleep(WAIT_TIMER)
+                try:
+                    rows = self.driver.find_elements(By.CSS_SELECTOR,"#distribution tr")
+                    for row in rows:
+                        if "Crop" in row.text:
+                            n_crops = int(row.text.split()[0])
+                            if n_crops >= minimun_crops:
+                                print(f"Field with {n_crops} crops found at ({x}|{y}).")
+                except:
+                    pass
+                
+    def create_troops(self,city_from:str,troop:str, n_troops):
+        # if self.update_active_city() != city_from:
+        #     self.go_to_village(city_from)
+        pass
+        #TODO identify which building is required and go to the building.
+        
+        #TODO Identify the correct section for the troop.
+        
+        #TODO Check if you can create the troops and fill in the boxes if so.
+        
+        #TODO Confirm the troop creation
+        
+        
+    # --- Queue Functions --- #
+    def run_queue(self, timer:int=15):
+        now = datetime.now()
+        print("_______________________________")
+        print(now.strftime('%Y-%m-%d %H:%M:%S'))
+        if self.last_reset + timedelta(minutes=90) < datetime.now():
+            print("Driver has been running for too long. Resetting driver.")
+            self.reset_driver()
+        for i in range(len(self.queue)-1,-1,-1):
+            task = self.queue[i]
+            handle = task[0]
+            args = task[1]
+            repeatable = task[2]
+            try:
+                function_executed = self.__execute_task(handle,args)
+                if repeatable == False and function_executed:
+                    self.queue.pop(i)
+            except:
+                print(f"***ERROR*** Current task: {handle.__name__} | Args: {args} | Repeat = {repeatable}")
+        self.go_to_resources_view()
+        time_in_5secs_blocks = int(timer * 60 / 5)
+        for i in range(time_in_5secs_blocks):
+            time.sleep(5)
+        self.run_queue(timer)
+        
+    def __execute_task(self,handle:Callable,args:list):
+        return handle(*args)
+        
+    def add_to_queue(self,task:Callable,args:list,repeatable:bool=False):
+        self.queue.insert(0,(task,args,repeatable))
