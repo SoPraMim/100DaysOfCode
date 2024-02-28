@@ -14,7 +14,7 @@ WAIT_TIMER = 1
 class Travian:
     def __init__(self) -> None:
         self.driver = []
-        self.last_reset:datetime = None
+        self.__last_reset:datetime = None
         self.warehouse_capacity = 0
         self.granary_capacity = 0
         self.resources = {}
@@ -24,7 +24,7 @@ class Travian:
         self.active_city = None
         self.targets = TargetManager()
         self.available_troops = {}
-        self.queue = []
+        self.__queue = []
         
         self.login()
         self.load_villages()
@@ -38,7 +38,7 @@ class Travian:
 
         self.driver = webdriver.Chrome(options=chrome_options)
         self.driver.get(URL)
-        self.last_reset = datetime.now()
+        self.__last_reset = datetime.now()
 
         # Login
         self.driver.find_element(By.CSS_SELECTOR,".account input").send_keys(os.environ.get("TRAVIAN_ACCOUNT"))
@@ -54,7 +54,7 @@ class Travian:
         self.login()
         
     def get_last_reset(self):
-        return self.last_reset.strftime("%Y-%m-%d %H:%M:%S")
+        return self.__last_reset.strftime("%Y-%m-%d %H:%M:%S")
     
     # --- Village Management Functions --- #        
     def save_villages(self):
@@ -67,6 +67,9 @@ class Travian:
                 self.villages = json.loads(file.read())
         except FileNotFoundError:
             self.update_villages()
+            
+    def get_all_villages(self):
+        return [village for village in self.villages]
         
     def update_resources(self):
         self.warehouse_capacity = self.driver.find_element(By.CSS_SELECTOR,".warehouse .capacity").text
@@ -86,8 +89,11 @@ class Travian:
             village_name = self.driver.find_element(By.XPATH,f"/html/body/div[3]/div[3]/div[3]/div[2]/div/table/tbody/tr/td[{1+i}]/a").text
             self.villages[village_name] = {
                 "resources_layout":{},
-                "buildings_layout":{}
+                "buildings_layout":{},
+                "coordinates": [],
             }
+            if village_name == "SPM 01":
+                self.villages[village_name]["coordinates"] = [77,-41]
             self.identify_fields()
             self.identify_buildings()
             self.driver.find_element(By.CSS_SELECTOR,"#sidebarBoxVillagelist .header .buttonsWrapper a").click()
@@ -218,6 +224,21 @@ class Travian:
             if item['level'] == lowest_level:
                 return key
     
+    def get_all_buildings(self,city_from:str) -> list:
+        output_list = []
+        village = self.villages[city_from]
+        for _,resource_field in village["resources_layout"].items():
+            if resource_field["resource"] == "empty":
+                continue
+            if resource_field["resource"] not in output_list:
+                output_list.append(f"{resource_field['resource']}")
+        for _,building_slot in village["buildings_layout"].items():
+            if building_slot["building"] == "empty":
+                continue
+            if building_slot["building"] not in output_list:
+                output_list.append(f"{building_slot['building']}")
+        return output_list
+    
     def update_active_city(self):
         """Updates the active city."""
         self.active_city = self.driver.find_element(By.CSS_SELECTOR,".villageInput").get_attribute("value")
@@ -228,33 +249,14 @@ class Travian:
         pass
 
     # --- Attacks-Related Functions --- #    
-    def add_target(self):
-        village_from = self.active_city
-        target_url = input("Copy-paste the url to the target:\n")
-        # https://ts1.x1.international.travian.com/karte.php?x=77&y=-40
-        target_name = input("Type the target name:\n")
-        target_type = input("What kind of target is it? (village,oasis)\n")
+    def add_target(self,village_from,target_url,target_name,target_type,troops,cooldown):
         if target_type not in ['village','oasis']:
             raise ValueError('Target type not available.')
         coordinate_x,coordinate_y = target_url.split("?")[1].split("&")
         coordinate_x = int(coordinate_x.replace("x=",""))
         coordinate_y = int(coordinate_y.replace("y=",""))
-        coordinates = (coordinate_x,coordinate_y)
-        coordinates = tuple([int(coordinate) for coordinate in coordinates])
-        troops = {
-            'Legionnaire': int(input("Number of Legionnaires: ")),
-            'Praetorian': int(input("Number of Praetorians: ")),
-            'Imperian': int(input("Number of Imperians:")),
-            'Equites Legati': int(input("Number of Equites Legati: ")),
-            'Equites Imperatoris': int(input("Number of Equites Imperatoris: ")),
-            'Equites Caesaris': int(input("Number of Equites Caesaris: ")),
-            'Battering ram': int(input("Number of Battering rams: ")),
-            'Fire Catapult': int(input("Number of Fire Catapulst: ")),
-            'Senator': int(input("Number of Senators: ")),
-            'Settler': int(input("Number of Settlers: ")),
-            'Hero': int(input("Number of Heros: ")),
-        }
-        cooldown = eval(input("How long between attacks (in minutes)?"))
+        coordinates = [coordinate_x,coordinate_y]
+        cooldown = int(cooldown)
         self.targets.add_new_target(village_from=village_from, 
                                     target_url=target_url,
                                     target_name=target_name,
@@ -262,7 +264,11 @@ class Travian:
                                     coordinates=coordinates,
                                     troops=troops,
                                     cooldown=cooldown)
-        self.targets.save_targets()
+        self.targets.sort_targets_by_dist(city_from=village_from,city_from_coordinates=self.villages[village_from]["coordinates"])
+        
+        
+    def get_targets(self,city_from:str):
+        return self.targets.get_targets(city_from)
         
         
     def update_available_troops(self):
@@ -412,32 +418,33 @@ class Travian:
         
         
     # --- Queue Functions --- #
+    
     def run_queue(self, timer:int=15):
         now = datetime.now()
         print("_______________________________")
         print(now.strftime('%Y-%m-%d %H:%M:%S'))
-        if self.last_reset + timedelta(minutes=90) < datetime.now():
+        if self.__last_reset + timedelta(minutes=75) < now:
             print("Driver has been running for too long. Resetting driver.")
             self.reset_driver()
-        for i in range(len(self.queue)-1,-1,-1):
-            task = self.queue[i]
+        for i in range(len(self.__queue)-1,-1,-1):
+            task = self.__queue[i]
             handle = task[0]
             args = task[1]
             repeatable = task[2]
             try:
                 function_executed = self.__execute_task(handle,args)
                 if repeatable == False and function_executed:
-                    self.queue.pop(i)
+                    self.__queue.pop(i)
             except:
                 print(f"***ERROR*** Current task: {handle.__name__} | Args: {args} | Repeat = {repeatable}")
         self.go_to_resources_view()
-        time_in_5secs_blocks = int(timer * 60 / 5)
-        for i in range(time_in_5secs_blocks):
-            time.sleep(5)
-        self.run_queue(timer)
+        print("_______________________________")
         
     def __execute_task(self,handle:Callable,args:list):
         return handle(*args)
         
     def add_to_queue(self,task:Callable,args:list,repeatable:bool=False):
-        self.queue.insert(0,(task,args,repeatable))
+        self.__queue.insert(0,(task,args,repeatable))
+        
+    def get_queue(self) -> list:
+        return self.__queue.copy()

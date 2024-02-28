@@ -1,5 +1,6 @@
 import json
 from datetime import datetime
+import math
 
 ROOT = ""
 
@@ -10,7 +11,7 @@ class TargetManager:
         self.load_targets()
     
     def add_new_target(self,village_from:str,target_url:str,target_name:str,
-                       target_type:str,coordinates:tuple,troops:dict,cooldown:int):
+                       target_type:str,coordinates:list,troops:dict,cooldown:int):
         if self.targets.get(village_from) is None:
             self.targets[village_from] = []
         new_target = {
@@ -23,8 +24,10 @@ class TargetManager:
             "target_url": target_url,
         }
         if self.target_exists(village_from,new_target):
-            raise KeyError("Target already exists")
-        self.targets[village_from].append(new_target)
+            target_idx = self.get_target_idx_from_url(village_from,target_url)
+            self.targets[village_from][target_idx] = new_target
+        else:
+            self.targets[village_from].append(new_target)
         self.save_targets()
         
     def save_targets(self):
@@ -41,8 +44,15 @@ class TargetManager:
     def get_targets(self,village_from:str):
         return self.targets[village_from]
     
+    
     def get_targets_coordinates(self,village_from):
         return [target["coordinates"] for target in self.get_targets(village_from)]
+    
+    def get_target_idx_from_url(self,village_from,target_url) -> int:
+        for i in range(len(self.targets[village_from])):
+            if self.targets[village_from][i]["target_url"] == target_url:
+                return i
+        
     
     def delete_target(self,village_from,idx):
         self.targets[village_from].pop(idx)
@@ -66,3 +76,29 @@ class TargetManager:
         all_targets_from_city = self.get_targets_coordinates(village_from)
         target_coordinates = list(target["coordinates"])
         return target_coordinates in all_targets_from_city
+
+    def calculate_distance(self,coordinates_from, coordinates_to):
+        x_from,y_from = coordinates_from
+        x_to, y_to = coordinates_to
+        x_dist = x_to - x_from
+        y_dist = y_to - y_from
+        dist = math.sqrt(x_dist**2 + y_dist**2) 
+        return dist
+    
+    def sort_targets_by_dist(self,city_from:str,city_from_coordinates:list):
+        targets:list = self.get_targets(city_from)
+        new_targets = []
+        while len(targets) > 0:
+            for i in range(len(targets)):
+                if i == 0:
+                    lowest_dist = self.calculate_distance(city_from_coordinates,targets[i]["coordinates"])
+                    idx_lowest_dist = 0
+                    continue
+                dist = self.calculate_distance(city_from_coordinates,targets[i]["coordinates"])
+                if dist < lowest_dist:
+                    lowest_dist = dist
+                    idx_lowest_dist = i
+            new_targets.append(targets[idx_lowest_dist])
+            targets.pop(idx_lowest_dist)
+        self.targets[city_from] = new_targets
+        self.save_targets()

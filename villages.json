@@ -3,7 +3,7 @@
         "resources_layout": {
             "1": {
                 "resource": "Woodcutter",
-                "level": 7
+                "level": 8
             },
             "2": {
                 "resource": "Cropland",
@@ -11,11 +11,11 @@
             },
             "3": {
                 "resource": "Woodcutter",
-                "level": 7
+                "level": 8
             },
             "4": {
                 "resource": "Iron Mine",
-                "level": 6
+                "level": 7
             },
             "5": {
                 "resource": "Clay Pit",
@@ -23,23 +23,23 @@
             },
             "6": {
                 "resource": "Clay Pit",
-                "level": 6
+                "level": 7
             },
             "7": {
                 "resource": "Iron Mine",
-                "level": 6
+                "level": 7
             },
             "8": {
                 "resource": "Cropland",
-                "level": 5
+                "level": 6
             },
             "9": {
                 "resource": "Cropland",
-                "level": 5
+                "level": 6
             },
             "10": {
                 "resource": "Iron Mine",
-                "level": 6
+                "level": 7
             },
             "11": {
                 "resource": "Iron Mine",
@@ -47,31 +47,31 @@
             },
             "12": {
                 "resource": "Cropland",
-                "level": 5
+                "level": 6
             },
             "13": {
                 "resource": "Cropland",
-                "level": 5
+                "level": 6
             },
             "14": {
                 "resource": "Woodcutter",
-                "level": 7
+                "level": 8
             },
             "15": {
                 "resource": "Cropland",
-                "level": 5
+                "level": 6
             },
             "16": {
                 "resource": "Clay Pit",
-                "level": 6
+                "level": 7
             },
             "17": {
                 "resource": "Woodcutter",
-                "level": 6
+                "level": 7
             },
             "18": {
                 "resource": "Clay Pit",
-                "level": 6
+                "level": 7
             }
         },
         "buildings_layout": {
@@ -85,7 +85,7 @@
             },
             "21": {
                 "building": "Academy",
-                "level": 5
+                "level": 10
             },
             "22": {
                 "building": "Smithy",
@@ -97,7 +97,7 @@
             },
             "24": {
                 "building": "Residence",
-                "level": 4
+                "level": 10
             },
             "25": {
                 "building": "empty",
@@ -105,7 +105,7 @@
             },
             "26": {
                 "building": "Main Building",
-                "level": 10
+                "level": 12
             },
             "27": {
                 "building": "empty",
@@ -120,16 +120,16 @@
                 "level": 5
             },
             "30": {
-                "building": "empty",
-                "level": 0
+                "building": "Town Hall",
+                "level": 1
             },
             "31": {
                 "building": "Warehouse",
-                "level": 7
+                "level": 10
             },
             "32": {
                 "building": "Granary",
-                "level": 7
+                "level": 10
             },
             "33": {
                 "building": "empty",
@@ -141,7 +141,7 @@
             },
             "35": {
                 "building": "Marketplace",
-                "level": 3
+                "level": 6
             },
             "36": {
                 "building": "empty",
@@ -149,11 +149,11 @@
             },
             "37": {
                 "building": "Cranny",
-                "level": 3
+                "level": 6
             },
             "38": {
-                "building": "empty",
-                "level": 0
+                "building": "Grain Mill",
+                "level": 1
             },
             "39": {
                 "building": "Rally Point",
@@ -163,6 +163,10 @@
                 "building": "empty",
                 "level": 0
             }
-        }
+        },
+        "coordinates": [
+            77,
+            -41
+        ]
     }
 }
