@@ -42,7 +42,11 @@ class TargetManager:
             pass
         
     def get_targets(self,village_from:str):
-        return self.targets[village_from]
+        targets:list = self.targets.get(village_from)
+        if targets == None:
+            return []
+        else:
+            return targets.copy()
     
     
     def get_targets_coordinates(self,village_from):
@@ -53,8 +57,7 @@ class TargetManager:
             if self.targets[village_from][i]["target_url"] == target_url:
                 return i
         
-    
-    def delete_target(self,village_from,idx):
+    def delete_target_by_idx(self,village_from,idx):
         self.targets[village_from].pop(idx)
         self.save_targets()
     

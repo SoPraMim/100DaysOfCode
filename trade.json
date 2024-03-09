@@ -1,0 +1,18 @@
+{
+    "SPM 01": [
+        {
+            "coordinates": [
+                42,
+                -113
+            ],
+            "resources": {
+                "Lumber": 500,
+                "Clay": 500,
+                "Iron": 500,
+                "Crop": 0
+            },
+            "cooldown": 300,
+            "last_trade": "2024-01-01 00:00:00"
+        }
+    ]
+}

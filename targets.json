@@ -1,16 +1,16 @@
 {
     "SPM 01": [
         {
-            "target_name": "Oasis",
-            "target_type": "oasis",
+            "target_name": "\tJackySpadesJJ",
+            "target_type": "village",
             "coordinates": [
-                77,
+                78,
                 -40
             ],
             "troops": {
-                "Legionnaire": 20,
+                "Legionnaire": 0,
                 "Praetorian": 0,
-                "Imperian": 0,
+                "Imperian": 20,
                 "Equites Legati": 0,
                 "Equites Imperatoris": 0,
                 "Equites Caesaris": 0,
@@ -20,9 +20,9 @@
                 "Settler": 0,
                 "Hero": 0
             },
-            "cooldown": 240,
-            "last_attack": "2024-02-28 00:41:49",
-            "target_url": "https://ts1.x1.international.travian.com/karte.php?x=77&y=-40"
+            "cooldown": 300,
+            "last_attack": "2024-03-09 18:44:43",
+            "target_url": "https://ts1.x1.international.travian.com/karte.php?x=78&y=-40"
         },
         {
             "target_name": "Panda Express",
@@ -34,7 +34,7 @@
             "troops": {
                 "Legionnaire": 0,
                 "Praetorian": 0,
-                "Imperian": 10,
+                "Imperian": 5,
                 "Equites Legati": 0,
                 "Equites Imperatoris": 0,
                 "Equites Caesaris": 0,
@@ -45,7 +45,7 @@
                 "Hero": 0
             },
             "cooldown": 240,
-            "last_attack": "2024-02-27 22:50:11",
+            "last_attack": "2024-03-09 18:44:49",
             "target_url": "https://ts1.x1.international.travian.com/karte.php?x=75&y=-40"
         },
         {
@@ -58,7 +58,7 @@
             "troops": {
                 "Legionnaire": 0,
                 "Praetorian": 0,
-                "Imperian": 10,
+                "Imperian": 5,
                 "Equites Legati": 0,
                 "Equites Imperatoris": 0,
                 "Equites Caesaris": 0,
@@ -69,7 +69,7 @@
                 "Hero": 0
             },
             "cooldown": 240,
-            "last_attack": "2024-02-27 22:50:16",
+            "last_attack": "2024-03-09 15:50:11",
             "target_url": "https://ts1.x1.international.travian.com/karte.php?x=79&y=-39"
         },
         {
@@ -80,9 +80,9 @@
                 -43
             ],
             "troops": {
-                "Legionnaire": 20,
+                "Legionnaire": 0,
                 "Praetorian": 0,
-                "Imperian": 0,
+                "Imperian": 20,
                 "Equites Legati": 0,
                 "Equites Imperatoris": 0,
                 "Equites Caesaris": 0,
@@ -93,32 +93,8 @@
                 "Hero": 0
             },
             "cooldown": 240,
-            "last_attack": "2024-02-28 00:57:03",
+            "last_attack": "2024-03-09 06:43:03",
             "target_url": "https://ts1.x1.international.travian.com/karte.php?x=79&y=-43"
-        },
-        {
-            "target_name": "Oasis 2",
-            "target_type": "oasis",
-            "coordinates": [
-                80,
-                -40
-            ],
-            "troops": {
-                "Legionnaire": 20,
-                "Praetorian": 0,
-                "Imperian": 0,
-                "Equites Legati": 0,
-                "Equites Imperatoris": 0,
-                "Equites Caesaris": 0,
-                "Battering ram": 0,
-                "Fire Catapult": 0,
-                "Senator": 0,
-                "Settler": 0,
-                "Hero": 0
-            },
-            "cooldown": 240,
-            "last_attack": "2024-02-27 11:06:01",
-            "target_url": "https://ts1.x1.international.travian.com/karte.php?x=80&y=-40"
         },
         {
             "target_name": "Oasis",
@@ -141,31 +117,7 @@
                 "Hero": 0
             },
             "cooldown": 240,
-            "last_attack": "2024-02-27 16:49:54",
-            "target_url": "https://ts1.x1.international.travian.com/karte.php?x=81&y=-41"
-        },
-        {
-            "target_name": "Oasis",
-            "target_type": "oasis",
-            "coordinates": [
-                81,
-                -41
-            ],
-            "troops": {
-                "Legionnaire": 20,
-                "Praetorian": 0,
-                "Imperian": 0,
-                "Equites Legati": 0,
-                "Equites Imperatoris": 0,
-                "Equites Caesaris": 0,
-                "Battering ram": 0,
-                "Fire Catapult": 0,
-                "Senator": 0,
-                "Settler": 0,
-                "Hero": 0
-            },
-            "cooldown": 240,
-            "last_attack": "2024-02-27 16:19:16",
+            "last_attack": "2024-03-09 16:08:30",
             "target_url": "https://ts1.x1.international.travian.com/karte.php?x=81&y=-41"
         },
         {
@@ -178,7 +130,7 @@
             "troops": {
                 "Legionnaire": 0,
                 "Praetorian": 0,
-                "Imperian": 20,
+                "Imperian": 0,
                 "Equites Legati": 0,
                 "Equites Imperatoris": 0,
                 "Equites Caesaris": 0,
@@ -186,10 +138,10 @@
                 "Fire Catapult": 0,
                 "Senator": 0,
                 "Settler": 0,
-                "Hero": 0
+                "Hero": 1
             },
             "cooldown": 240,
-            "last_attack": "2024-02-27 22:50:32",
+            "last_attack": "2024-03-09 13:42:09",
             "target_url": "https://ts1.x1.international.travian.com/karte.php?x=80&y=-38"
         },
         {
@@ -202,7 +154,7 @@
             "troops": {
                 "Legionnaire": 0,
                 "Praetorian": 0,
-                "Imperian": 10,
+                "Imperian": 5,
                 "Equites Legati": 0,
                 "Equites Imperatoris": 0,
                 "Equites Caesaris": 0,
@@ -213,7 +165,7 @@
                 "Hero": 0
             },
             "cooldown": 240,
-            "last_attack": "2024-02-27 22:50:39",
+            "last_attack": "2024-03-09 16:08:36",
             "target_url": "https://ts1.x1.international.travian.com/karte.php?x=74&y=-38"
         },
         {
@@ -226,7 +178,7 @@
             "troops": {
                 "Legionnaire": 0,
                 "Praetorian": 0,
-                "Imperian": 10,
+                "Imperian": 5,
                 "Equites Legati": 0,
                 "Equites Imperatoris": 0,
                 "Equites Caesaris": 0,
@@ -237,7 +189,7 @@
                 "Hero": 0
             },
             "cooldown": 240,
-            "last_attack": "2024-02-27 22:50:46",
+            "last_attack": "2024-03-09 17:18:15",
             "target_url": "https://ts1.x1.international.travian.com/karte.php?x=81&y=-43"
         },
         {
@@ -248,9 +200,9 @@
                 -37
             ],
             "troops": {
-                "Legionnaire": 20,
+                "Legionnaire": 0,
                 "Praetorian": 0,
-                "Imperian": 0,
+                "Imperian": 20,
                 "Equites Legati": 0,
                 "Equites Imperatoris": 0,
                 "Equites Caesaris": 0,
@@ -261,8 +213,56 @@
                 "Hero": 0
             },
             "cooldown": 240,
-            "last_attack": "2024-02-28 01:12:30",
+            "last_attack": "2024-03-09 17:18:22",
             "target_url": "https://ts1.x1.international.travian.com/karte.php?x=75&y=-37"
+        },
+        {
+            "target_name": "popo",
+            "target_type": "village",
+            "coordinates": [
+                72,
+                -41
+            ],
+            "troops": {
+                "Legionnaire": 0,
+                "Praetorian": 0,
+                "Imperian": 20,
+                "Equites Legati": 0,
+                "Equites Imperatoris": 0,
+                "Equites Caesaris": 0,
+                "Battering ram": 0,
+                "Fire Catapult": 0,
+                "Senator": 0,
+                "Settler": 0,
+                "Hero": 0
+            },
+            "cooldown": 300,
+            "last_attack": "2024-03-09 14:18:00",
+            "target_url": "https://ts1.x1.international.travian.com/karte.php?x=72&y=-41"
+        },
+        {
+            "target_name": "VILLAGE",
+            "target_type": "village",
+            "coordinates": [
+                80,
+                -37
+            ],
+            "troops": {
+                "Legionnaire": 0,
+                "Praetorian": 0,
+                "Imperian": 20,
+                "Equites Legati": 0,
+                "Equites Imperatoris": 0,
+                "Equites Caesaris": 0,
+                "Battering ram": 0,
+                "Fire Catapult": 0,
+                "Senator": 0,
+                "Settler": 0,
+                "Hero": 0
+            },
+            "cooldown": 360,
+            "last_attack": "2024-03-09 12:45:41",
+            "target_url": "https://ts1.x1.international.travian.com/karte.php?x=80&y=-37"
         },
         {
             "target_name": "Oasis",
@@ -272,9 +272,9 @@
                 -36
             ],
             "troops": {
-                "Legionnaire": 20,
+                "Legionnaire": 0,
                 "Praetorian": 0,
-                "Imperian": 0,
+                "Imperian": 15,
                 "Equites Legati": 0,
                 "Equites Imperatoris": 0,
                 "Equites Caesaris": 0,
@@ -285,7 +285,7 @@
                 "Hero": 0
             },
             "cooldown": 240,
-            "last_attack": "2024-02-27 21:21:00",
+            "last_attack": "2024-03-04 20:56:06",
             "target_url": "https://ts1.x1.international.travian.com/karte.php?x=76&y=-36"
         },
         {
@@ -296,9 +296,9 @@
                 -42
             ],
             "troops": {
-                "Legionnaire": 20,
+                "Legionnaire": 0,
                 "Praetorian": 0,
-                "Imperian": 0,
+                "Imperian": 15,
                 "Equites Legati": 0,
                 "Equites Imperatoris": 0,
                 "Equites Caesaris": 0,
@@ -309,7 +309,7 @@
                 "Hero": 0
             },
             "cooldown": 240,
-            "last_attack": "2024-02-28 01:44:51",
+            "last_attack": "2024-03-09 07:36:02",
             "target_url": "https://ts1.x1.international.travian.com/karte.php?x=82&y=-42"
         },
         {
@@ -320,9 +320,9 @@
                 -40
             ],
             "troops": {
-                "Legionnaire": 20,
+                "Legionnaire": 0,
                 "Praetorian": 0,
-                "Imperian": 0,
+                "Imperian": 15,
                 "Equites Legati": 0,
                 "Equites Imperatoris": 0,
                 "Equites Caesaris": 0,
@@ -333,7 +333,7 @@
                 "Hero": 0
             },
             "cooldown": 240,
-            "last_attack": "2024-01-01 00:00:00",
+            "last_attack": "2024-03-09 17:36:46",
             "target_url": "https://ts1.x1.international.travian.com/karte.php?x=82&y=-40"
         },
         {
@@ -344,9 +344,9 @@
                 -40
             ],
             "troops": {
-                "Legionnaire": 20,
+                "Legionnaire": 0,
                 "Praetorian": 0,
-                "Imperian": 0,
+                "Imperian": 15,
                 "Equites Legati": 0,
                 "Equites Imperatoris": 0,
                 "Equites Caesaris": 0,
@@ -357,7 +357,7 @@
                 "Hero": 0
             },
             "cooldown": 240,
-            "last_attack": "2024-02-27 21:48:21",
+            "last_attack": "2024-03-09 17:36:53",
             "target_url": "https://ts1.x1.international.travian.com/karte.php?x=72&y=-40"
         },
         {
@@ -368,7 +368,7 @@
                 -43
             ],
             "troops": {
-                "Legionnaire": 10,
+                "Legionnaire": 5,
                 "Praetorian": 0,
                 "Imperian": 0,
                 "Equites Legati": 0,
@@ -381,7 +381,7 @@
                 "Hero": 0
             },
             "cooldown": 240,
-            "last_attack": "2024-02-27 22:34:41",
+            "last_attack": "2024-03-09 12:27:07",
             "target_url": "https://ts1.x1.international.travian.com/karte.php?x=72&y=-43"
         },
         {
@@ -392,9 +392,9 @@
                 -43
             ],
             "troops": {
-                "Legionnaire": 20,
+                "Legionnaire": 0,
                 "Praetorian": 0,
-                "Imperian": 0,
+                "Imperian": 15,
                 "Equites Legati": 0,
                 "Equites Imperatoris": 0,
                 "Equites Caesaris": 0,
@@ -405,32 +405,8 @@
                 "Hero": 0
             },
             "cooldown": 240,
-            "last_attack": "2024-02-27 14:31:31",
+            "last_attack": "2024-03-07 08:48:50",
             "target_url": "https://ts1.x1.international.travian.com/karte.php?x=82&y=-43"
-        },
-        {
-            "target_name": "leonidasmaximus",
-            "target_type": "village",
-            "coordinates": [
-                72,
-                -38
-            ],
-            "troops": {
-                "Legionnaire": 10,
-                "Praetorian": 0,
-                "Imperian": 0,
-                "Equites Legati": 0,
-                "Equites Imperatoris": 0,
-                "Equites Caesaris": 0,
-                "Battering ram": 0,
-                "Fire Catapult": 0,
-                "Senator": 0,
-                "Settler": 0,
-                "Hero": 0
-            },
-            "cooldown": 240,
-            "last_attack": "2024-02-27 22:34:47",
-            "target_url": "https://ts1.x1.international.travian.com/karte.php?x=72&y=-38"
         },
         {
             "target_name": "Oasis",
@@ -440,9 +416,9 @@
                 -36
             ],
             "troops": {
-                "Legionnaire": 20,
+                "Legionnaire": 0,
                 "Praetorian": 0,
-                "Imperian": 0,
+                "Imperian": 15,
                 "Equites Legati": 0,
                 "Equites Imperatoris": 0,
                 "Equites Caesaris": 0,
@@ -453,7 +429,7 @@
                 "Hero": 0
             },
             "cooldown": 240,
-            "last_attack": "2024-02-27 22:51:07",
+            "last_attack": "2024-03-09 14:55:24",
             "target_url": "https://ts1.x1.international.travian.com/karte.php?x=74&y=-36"
         },
         {
@@ -464,9 +440,9 @@
                 -44
             ],
             "troops": {
-                "Legionnaire": 20,
+                "Legionnaire": 0,
                 "Praetorian": 0,
-                "Imperian": 0,
+                "Imperian": 15,
                 "Equites Legati": 0,
                 "Equites Imperatoris": 0,
                 "Equites Caesaris": 0,
@@ -477,8 +453,32 @@
                 "Hero": 0
             },
             "cooldown": 240,
-            "last_attack": "2024-01-01 00:00:00",
+            "last_attack": "2024-03-08 17:31:55",
             "target_url": "https://ts1.x1.international.travian.com/karte.php?x=72&y=-44"
+        },
+        {
+            "target_name": "Villaggio di Magnus Domini 2",
+            "target_type": "village",
+            "coordinates": [
+                82,
+                -38
+            ],
+            "troops": {
+                "Legionnaire": 0,
+                "Praetorian": 0,
+                "Imperian": 20,
+                "Equites Legati": 0,
+                "Equites Imperatoris": 0,
+                "Equites Caesaris": 0,
+                "Battering ram": 0,
+                "Fire Catapult": 0,
+                "Senator": 0,
+                "Settler": 0,
+                "Hero": 0
+            },
+            "cooldown": 300,
+            "last_attack": "2024-03-09 14:18:20",
+            "target_url": "https://ts1.x1.international.travian.com/karte.php?x=82&y=-38"
         },
         {
             "target_name": "Oasis",
@@ -488,9 +488,9 @@
                 -37
             ],
             "troops": {
-                "Legionnaire": 20,
+                "Legionnaire": 0,
                 "Praetorian": 0,
-                "Imperian": 0,
+                "Imperian": 15,
                 "Equites Legati": 0,
                 "Equites Imperatoris": 0,
                 "Equites Caesaris": 0,
@@ -501,7 +501,7 @@
                 "Hero": 0
             },
             "cooldown": 240,
-            "last_attack": "2024-02-27 22:51:26",
+            "last_attack": "2024-03-08 09:03:13",
             "target_url": "https://ts1.x1.international.travian.com/karte.php?x=82&y=-37"
         },
         {
@@ -512,9 +512,9 @@
                 -36
             ],
             "troops": {
-                "Legionnaire": 20,
+                "Legionnaire": 0,
                 "Praetorian": 0,
-                "Imperian": 0,
+                "Imperian": 15,
                 "Equites Legati": 0,
                 "Equites Imperatoris": 0,
                 "Equites Caesaris": 0,
@@ -525,7 +525,7 @@
                 "Hero": 0
             },
             "cooldown": 240,
-            "last_attack": "2024-02-27 22:51:36",
+            "last_attack": "2024-03-09 17:56:46",
             "target_url": "https://ts1.x1.international.travian.com/karte.php?x=81&y=-36"
         },
         {
@@ -536,9 +536,9 @@
                 -38
             ],
             "troops": {
-                "Legionnaire": 20,
+                "Legionnaire": 0,
                 "Praetorian": 0,
-                "Imperian": 0,
+                "Imperian": 15,
                 "Equites Legati": 0,
                 "Equites Imperatoris": 0,
                 "Equites Caesaris": 0,
@@ -549,7 +549,7 @@
                 "Hero": 0
             },
             "cooldown": 240,
-            "last_attack": "2024-02-23 23:50:56",
+            "last_attack": "2024-03-09 18:26:51",
             "target_url": "https://ts1.x1.international.travian.com/karte.php?x=83&y=-38"
         },
         {
@@ -560,9 +560,9 @@
                 -36
             ],
             "troops": {
-                "Legionnaire": 20,
+                "Legionnaire": 0,
                 "Praetorian": 0,
-                "Imperian": 0,
+                "Imperian": 15,
                 "Equites Legati": 0,
                 "Equites Imperatoris": 0,
                 "Equites Caesaris": 0,
@@ -573,7 +573,7 @@
                 "Hero": 0
             },
             "cooldown": 240,
-            "last_attack": "2024-02-27 22:51:50",
+            "last_attack": "2024-03-09 05:10:06",
             "target_url": "https://ts1.x1.international.travian.com/karte.php?x=72&y=-36"
         },
         {
@@ -586,7 +586,7 @@
             "troops": {
                 "Legionnaire": 0,
                 "Praetorian": 0,
-                "Imperian": 10,
+                "Imperian": 5,
                 "Equites Legati": 0,
                 "Equites Imperatoris": 0,
                 "Equites Caesaris": 0,
@@ -597,7 +597,7 @@
                 "Hero": 0
             },
             "cooldown": 240,
-            "last_attack": "2024-02-28 00:57:08",
+            "last_attack": "2024-03-09 17:18:53",
             "target_url": "https://ts1.x1.international.travian.com/karte.php?x=78&y=-48"
         },
         {
@@ -608,9 +608,9 @@
                 -37
             ],
             "troops": {
-                "Legionnaire": 20,
+                "Legionnaire": 0,
                 "Praetorian": 0,
-                "Imperian": 0,
+                "Imperian": 15,
                 "Equites Legati": 0,
                 "Equites Imperatoris": 0,
                 "Equites Caesaris": 0,
@@ -621,7 +621,7 @@
                 "Hero": 0
             },
             "cooldown": 240,
-            "last_attack": "2024-02-27 23:08:22",
+            "last_attack": "2024-03-09 15:32:38",
             "target_url": "https://ts1.x1.international.travian.com/karte.php?x=83&y=-37"
         },
         {
@@ -630,6 +630,102 @@
             "coordinates": [
                 84,
                 -39
+            ],
+            "troops": {
+                "Legionnaire": 0,
+                "Praetorian": 0,
+                "Imperian": 5,
+                "Equites Legati": 0,
+                "Equites Imperatoris": 0,
+                "Equites Caesaris": 0,
+                "Battering ram": 0,
+                "Fire Catapult": 0,
+                "Senator": 0,
+                "Settler": 0,
+                "Hero": 0
+            },
+            "cooldown": 240,
+            "last_attack": "2024-03-09 17:37:18",
+            "target_url": "https://ts1.x1.international.travian.com/karte.php?x=84&y=-39"
+        },
+        {
+            "target_name": "Oasis",
+            "target_type": "oasis",
+            "coordinates": [
+                82,
+                -35
+            ],
+            "troops": {
+                "Legionnaire": 0,
+                "Praetorian": 0,
+                "Imperian": 15,
+                "Equites Legati": 0,
+                "Equites Imperatoris": 0,
+                "Equites Caesaris": 0,
+                "Battering ram": 0,
+                "Fire Catapult": 0,
+                "Senator": 0,
+                "Settler": 0,
+                "Hero": 0
+            },
+            "cooldown": 240,
+            "last_attack": "2024-03-08 22:56:08",
+            "target_url": "https://ts1.x1.international.travian.com/karte.php?x=82&y=-35"
+        },
+        {
+            "target_name": "Oasis",
+            "target_type": "oasis",
+            "coordinates": [
+                71,
+                -46
+            ],
+            "troops": {
+                "Legionnaire": 0,
+                "Praetorian": 0,
+                "Imperian": 15,
+                "Equites Legati": 0,
+                "Equites Imperatoris": 0,
+                "Equites Caesaris": 0,
+                "Battering ram": 0,
+                "Fire Catapult": 0,
+                "Senator": 0,
+                "Settler": 0,
+                "Hero": 0
+            },
+            "cooldown": 240,
+            "last_attack": "2024-03-09 15:32:46",
+            "target_url": "https://ts1.x1.international.travian.com/karte.php?x=71&y=-46"
+        },
+        {
+            "target_name": "Oasis",
+            "target_type": "oasis",
+            "coordinates": [
+                69,
+                -41
+            ],
+            "troops": {
+                "Legionnaire": 0,
+                "Praetorian": 0,
+                "Imperian": 15,
+                "Equites Legati": 0,
+                "Equites Imperatoris": 0,
+                "Equites Caesaris": 0,
+                "Battering ram": 0,
+                "Fire Catapult": 0,
+                "Senator": 0,
+                "Settler": 0,
+                "Hero": 0
+            },
+            "cooldown": 240,
+            "last_attack": "2024-03-09 17:37:28",
+            "target_url": "https://ts1.x1.international.travian.com/karte.php?x=69&y=-41"
+        },
+        {
+            "target_name": "Djuro",
+            "target_type": "village",
+            "coordinates": [
+                85,
+                -41
             ],
             "troops": {
                 "Legionnaire": 0,
@@ -645,80 +741,8 @@
                 "Hero": 0
             },
             "cooldown": 240,
-            "last_attack": "2024-02-27 22:51:57",
-            "target_url": "https://ts1.x1.international.travian.com/karte.php?x=84&y=-39"
-        },
-        {
-            "target_name": "Oasis",
-            "target_type": "oasis",
-            "coordinates": [
-                82,
-                -35
-            ],
-            "troops": {
-                "Legionnaire": 20,
-                "Praetorian": 0,
-                "Imperian": 0,
-                "Equites Legati": 0,
-                "Equites Imperatoris": 0,
-                "Equites Caesaris": 0,
-                "Battering ram": 0,
-                "Fire Catapult": 0,
-                "Senator": 0,
-                "Settler": 0,
-                "Hero": 0
-            },
-            "cooldown": 240,
-            "last_attack": "2024-01-01 00:00:00",
-            "target_url": "https://ts1.x1.international.travian.com/karte.php?x=82&y=-35"
-        },
-        {
-            "target_name": "Oasis",
-            "target_type": "oasis",
-            "coordinates": [
-                71,
-                -46
-            ],
-            "troops": {
-                "Legionnaire": 20,
-                "Praetorian": 0,
-                "Imperian": 0,
-                "Equites Legati": 0,
-                "Equites Imperatoris": 0,
-                "Equites Caesaris": 0,
-                "Battering ram": 0,
-                "Fire Catapult": 0,
-                "Senator": 0,
-                "Settler": 0,
-                "Hero": 0
-            },
-            "cooldown": 240,
-            "last_attack": "2024-02-27 23:39:40",
-            "target_url": "https://ts1.x1.international.travian.com/karte.php?x=71&y=-46"
-        },
-        {
-            "target_name": "Oasis",
-            "target_type": "oasis",
-            "coordinates": [
-                69,
-                -41
-            ],
-            "troops": {
-                "Legionnaire": 20,
-                "Praetorian": 0,
-                "Imperian": 0,
-                "Equites Legati": 0,
-                "Equites Imperatoris": 0,
-                "Equites Caesaris": 0,
-                "Battering ram": 0,
-                "Fire Catapult": 0,
-                "Senator": 0,
-                "Settler": 0,
-                "Hero": 0
-            },
-            "cooldown": 240,
-            "last_attack": "2024-02-28 01:12:56",
-            "target_url": "https://ts1.x1.international.travian.com/karte.php?x=69&y=-41"
+            "last_attack": "2024-03-09 17:57:04",
+            "target_url": "https://ts1.x1.international.travian.com/karte.php?x=85&y=-41"
         },
         {
             "target_name": "Aldeia Natar",
@@ -741,7 +765,7 @@
                 "Hero": 0
             },
             "cooldown": 300,
-            "last_attack": "2024-02-27 22:52:06",
+            "last_attack": "2024-03-09 17:57:10",
             "target_url": "https://ts1.x1.international.travian.com/karte.php?x=76&y=-49"
         },
         {
@@ -752,9 +776,9 @@
                 -45
             ],
             "troops": {
-                "Legionnaire": 20,
+                "Legionnaire": 0,
                 "Praetorian": 0,
-                "Imperian": 0,
+                "Imperian": 15,
                 "Equites Legati": 0,
                 "Equites Imperatoris": 0,
                 "Equites Caesaris": 0,
@@ -765,7 +789,7 @@
                 "Hero": 0
             },
             "cooldown": 240,
-            "last_attack": "2024-02-28 01:13:04",
+            "last_attack": "2024-03-09 15:50:54",
             "target_url": "https://ts1.x1.international.travian.com/karte.php?x=84&y=-45"
         },
         {
@@ -789,20 +813,20 @@
                 "Hero": 0
             },
             "cooldown": 240,
-            "last_attack": "2024-02-27 23:39:46",
+            "last_attack": "2024-03-09 17:57:17",
             "target_url": "https://ts1.x1.international.travian.com/karte.php?x=69&y=-40"
         },
         {
-            "target_name": "Oasis",
-            "target_type": "oasis",
+            "target_name": "Pafka oO",
+            "target_type": "village",
             "coordinates": [
-                83,
-                -35
+                79,
+                -33
             ],
             "troops": {
-                "Legionnaire": 20,
+                "Legionnaire": 0,
                 "Praetorian": 0,
-                "Imperian": 0,
+                "Imperian": 5,
                 "Equites Legati": 0,
                 "Equites Imperatoris": 0,
                 "Equites Caesaris": 0,
@@ -813,7 +837,31 @@
                 "Hero": 0
             },
             "cooldown": 240,
-            "last_attack": "2024-01-01 00:00:00",
+            "last_attack": "2024-03-09 17:37:37",
+            "target_url": "https://ts1.x1.international.travian.com/karte.php?x=79&y=-33"
+        },
+        {
+            "target_name": "Oasis",
+            "target_type": "oasis",
+            "coordinates": [
+                83,
+                -35
+            ],
+            "troops": {
+                "Legionnaire": 0,
+                "Praetorian": 0,
+                "Imperian": 15,
+                "Equites Legati": 0,
+                "Equites Imperatoris": 0,
+                "Equites Caesaris": 0,
+                "Battering ram": 0,
+                "Fire Catapult": 0,
+                "Senator": 0,
+                "Settler": 0,
+                "Hero": 0
+            },
+            "cooldown": 240,
+            "last_attack": "2024-03-09 17:57:24",
             "target_url": "https://ts1.x1.international.travian.com/karte.php?x=83&y=-35"
         },
         {
@@ -824,9 +872,9 @@
                 -44
             ],
             "troops": {
-                "Legionnaire": 20,
+                "Legionnaire": 0,
                 "Praetorian": 0,
-                "Imperian": 0,
+                "Imperian": 15,
                 "Equites Legati": 0,
                 "Equites Imperatoris": 0,
                 "Equites Caesaris": 0,
@@ -837,8 +885,56 @@
                 "Hero": 0
             },
             "cooldown": 240,
-            "last_attack": "2024-02-28 01:29:10",
+            "last_attack": "2024-03-02 07:21:47",
             "target_url": "https://ts1.x1.international.travian.com/karte.php?x=85&y=-44"
+        },
+        {
+            "target_name": "ketzer",
+            "target_type": "village",
+            "coordinates": [
+                82,
+                -48
+            ],
+            "troops": {
+                "Legionnaire": 0,
+                "Praetorian": 0,
+                "Imperian": 10,
+                "Equites Legati": 0,
+                "Equites Imperatoris": 0,
+                "Equites Caesaris": 0,
+                "Battering ram": 0,
+                "Fire Catapult": 0,
+                "Senator": 0,
+                "Settler": 0,
+                "Hero": 0
+            },
+            "cooldown": 300,
+            "last_attack": "2024-03-09 14:55:58",
+            "target_url": "https://ts1.x1.international.travian.com/karte.php?x=82&y=-48"
+        },
+        {
+            "target_name": "Falbala62",
+            "target_type": "village",
+            "coordinates": [
+                81,
+                -33
+            ],
+            "troops": {
+                "Legionnaire": 0,
+                "Praetorian": 0,
+                "Imperian": 5,
+                "Equites Legati": 0,
+                "Equites Imperatoris": 0,
+                "Equites Caesaris": 0,
+                "Battering ram": 0,
+                "Fire Catapult": 0,
+                "Senator": 0,
+                "Settler": 0,
+                "Hero": 0
+            },
+            "cooldown": 240,
+            "last_attack": "2024-03-09 18:45:42",
+            "target_url": "https://ts1.x1.international.travian.com/karte.php?x=81&y=-33"
         },
         {
             "target_name": "Oasis",
@@ -848,9 +944,9 @@
                 -42
             ],
             "troops": {
-                "Legionnaire": 20,
+                "Legionnaire": 0,
                 "Praetorian": 0,
-                "Imperian": 0,
+                "Imperian": 15,
                 "Equites Legati": 0,
                 "Equites Imperatoris": 0,
                 "Equites Caesaris": 0,
@@ -861,7 +957,7 @@
                 "Hero": 0
             },
             "cooldown": 240,
-            "last_attack": "2024-02-27 14:47:37",
+            "last_attack": "2024-03-09 16:27:04",
             "target_url": "https://ts1.x1.international.travian.com/karte.php?x=68&y=-42"
         },
         {
@@ -885,32 +981,8 @@
                 "Hero": 0
             },
             "cooldown": 240,
-            "last_attack": "2024-02-27 23:39:52",
+            "last_attack": "2024-03-09 10:17:44",
             "target_url": "https://ts1.x1.international.travian.com/karte.php?x=85&y=-36"
-        },
-        {
-            "target_name": "sayko",
-            "target_type": "village",
-            "coordinates": [
-                69,
-                -47
-            ],
-            "troops": {
-                "Legionnaire": 0,
-                "Praetorian": 0,
-                "Imperian": 10,
-                "Equites Legati": 0,
-                "Equites Imperatoris": 0,
-                "Equites Caesaris": 0,
-                "Battering ram": 0,
-                "Fire Catapult": 0,
-                "Senator": 0,
-                "Settler": 0,
-                "Hero": 0
-            },
-            "cooldown": 240,
-            "last_attack": "2024-02-28 00:10:36",
-            "target_url": "https://ts1.x1.international.travian.com/karte.php?x=69&y=-47"
         },
         {
             "target_name": "Xavid",
@@ -933,8 +1005,32 @@
                 "Hero": 0
             },
             "cooldown": 240,
-            "last_attack": "2024-02-28 00:10:44",
+            "last_attack": "2024-03-09 10:36:25",
             "target_url": "https://ts1.x1.international.travian.com/karte.php?x=77&y=-51"
+        },
+        {
+            "target_name": "Semper fidelis",
+            "target_type": "village",
+            "coordinates": [
+                83,
+                -49
+            ],
+            "troops": {
+                "Legionnaire": 0,
+                "Praetorian": 0,
+                "Imperian": 5,
+                "Equites Legati": 0,
+                "Equites Imperatoris": 0,
+                "Equites Caesaris": 0,
+                "Battering ram": 0,
+                "Fire Catapult": 0,
+                "Senator": 0,
+                "Settler": 0,
+                "Hero": 0
+            },
+            "cooldown": 720,
+            "last_attack": "2024-03-09 07:54:30",
+            "target_url": "https://ts1.x1.international.travian.com/karte.php?x=83&y=-49"
         },
         {
             "target_name": "Oasis",
@@ -944,9 +1040,9 @@
                 -46
             ],
             "troops": {
-                "Legionnaire": 20,
+                "Legionnaire": 0,
                 "Praetorian": 0,
-                "Imperian": 0,
+                "Imperian": 15,
                 "Equites Legati": 0,
                 "Equites Imperatoris": 0,
                 "Equites Caesaris": 0,
@@ -957,8 +1053,32 @@
                 "Hero": 0
             },
             "cooldown": 240,
-            "last_attack": "2024-02-27 17:53:03",
+            "last_attack": "2024-02-28 12:50:44",
             "target_url": "https://ts1.x1.international.travian.com/karte.php?x=68&y=-46"
+        },
+        {
+            "target_name": "Blackthorn",
+            "target_type": "village",
+            "coordinates": [
+                87,
+                -45
+            ],
+            "troops": {
+                "Legionnaire": 0,
+                "Praetorian": 0,
+                "Imperian": 5,
+                "Equites Legati": 0,
+                "Equites Imperatoris": 0,
+                "Equites Caesaris": 0,
+                "Battering ram": 0,
+                "Fire Catapult": 0,
+                "Senator": 0,
+                "Settler": 0,
+                "Hero": 0
+            },
+            "cooldown": 240,
+            "last_attack": "2024-03-09 17:57:39",
+            "target_url": "https://ts1.x1.international.travian.com/karte.php?x=87&y=-45"
         },
         {
             "target_name": "Taganatiti",
@@ -970,7 +1090,7 @@
             "troops": {
                 "Legionnaire": 0,
                 "Praetorian": 0,
-                "Imperian": 10,
+                "Imperian": 5,
                 "Equites Legati": 0,
                 "Equites Imperatoris": 0,
                 "Equites Caesaris": 0,
@@ -981,8 +1101,104 @@
                 "Hero": 0
             },
             "cooldown": 240,
-            "last_attack": "2024-02-28 00:10:54",
+            "last_attack": "2024-03-09 18:45:52",
             "target_url": "https://ts1.x1.international.travian.com/karte.php?x=71&y=-32"
+        },
+        {
+            "target_name": "ledzeppelin",
+            "target_type": "village",
+            "coordinates": [
+                71,
+                -50
+            ],
+            "troops": {
+                "Legionnaire": 0,
+                "Praetorian": 0,
+                "Imperian": 15,
+                "Equites Legati": 0,
+                "Equites Imperatoris": 0,
+                "Equites Caesaris": 0,
+                "Battering ram": 0,
+                "Fire Catapult": 0,
+                "Senator": 0,
+                "Settler": 0,
+                "Hero": 0
+            },
+            "cooldown": 720,
+            "last_attack": "2024-03-09 13:23:49",
+            "target_url": "https://ts1.x1.international.travian.com/karte.php?x=71&y=-50"
+        },
+        {
+            "target_name": "K\u00fcla omanik Troll",
+            "target_type": "village",
+            "coordinates": [
+                76,
+                -52
+            ],
+            "troops": {
+                "Legionnaire": 0,
+                "Praetorian": 0,
+                "Imperian": 0,
+                "Equites Legati": 0,
+                "Equites Imperatoris": 5,
+                "Equites Caesaris": 0,
+                "Battering ram": 0,
+                "Fire Catapult": 0,
+                "Senator": 0,
+                "Settler": 0,
+                "Hero": 0
+            },
+            "cooldown": 600,
+            "last_attack": "2024-03-09 10:36:31",
+            "target_url": "https://ts1.x1.international.travian.com/karte.php?x=76&y=-52"
+        },
+        {
+            "target_name": "Reiko",
+            "target_type": "village",
+            "coordinates": [
+                88,
+                -39
+            ],
+            "troops": {
+                "Legionnaire": 0,
+                "Praetorian": 0,
+                "Imperian": 5,
+                "Equites Legati": 0,
+                "Equites Imperatoris": 0,
+                "Equites Caesaris": 0,
+                "Battering ram": 0,
+                "Fire Catapult": 0,
+                "Senator": 0,
+                "Settler": 0,
+                "Hero": 0
+            },
+            "cooldown": 240,
+            "last_attack": "2024-03-09 11:14:04",
+            "target_url": "https://ts1.x1.international.travian.com/karte.php?x=88&y=-39"
+        },
+        {
+            "target_name": "Wishmaster",
+            "target_type": "village",
+            "coordinates": [
+                86,
+                -48
+            ],
+            "troops": {
+                "Legionnaire": 0,
+                "Praetorian": 0,
+                "Imperian": 5,
+                "Equites Legati": 0,
+                "Equites Imperatoris": 0,
+                "Equites Caesaris": 0,
+                "Battering ram": 0,
+                "Fire Catapult": 0,
+                "Senator": 0,
+                "Settler": 0,
+                "Hero": 0
+            },
+            "cooldown": 240,
+            "last_attack": "2024-03-09 11:14:09",
+            "target_url": "https://ts1.x1.international.travian.com/karte.php?x=86&y=-48"
         },
         {
             "target_name": "Oasis",
@@ -992,9 +1208,9 @@
                 -45
             ],
             "troops": {
-                "Legionnaire": 20,
+                "Legionnaire": 0,
                 "Praetorian": 0,
-                "Imperian": 0,
+                "Imperian": 15,
                 "Equites Legati": 0,
                 "Equites Imperatoris": 0,
                 "Equites Caesaris": 0,
@@ -1005,8 +1221,56 @@
                 "Hero": 0
             },
             "cooldown": 240,
-            "last_attack": "2024-02-27 05:02:41",
+            "last_attack": "2024-03-09 13:23:55",
             "target_url": "https://ts1.x1.international.travian.com/karte.php?x=66&y=-45"
+        },
+        {
+            "target_name": "Kow LoonTong",
+            "target_type": "village",
+            "coordinates": [
+                69,
+                -32
+            ],
+            "troops": {
+                "Legionnaire": 0,
+                "Praetorian": 0,
+                "Imperian": 5,
+                "Equites Legati": 0,
+                "Equites Imperatoris": 0,
+                "Equites Caesaris": 0,
+                "Battering ram": 0,
+                "Fire Catapult": 0,
+                "Senator": 0,
+                "Settler": 0,
+                "Hero": 0
+            },
+            "cooldown": 240,
+            "last_attack": "2024-03-09 11:50:46",
+            "target_url": "https://ts1.x1.international.travian.com/karte.php?x=69&y=-32"
+        },
+        {
+            "target_name": "truecodings",
+            "target_type": "village",
+            "coordinates": [
+                89,
+                -40
+            ],
+            "troops": {
+                "Legionnaire": 0,
+                "Praetorian": 0,
+                "Imperian": 5,
+                "Equites Legati": 0,
+                "Equites Imperatoris": 0,
+                "Equites Caesaris": 0,
+                "Battering ram": 0,
+                "Fire Catapult": 0,
+                "Senator": 0,
+                "Settler": 0,
+                "Hero": 0
+            },
+            "cooldown": 240,
+            "last_attack": "2024-03-09 11:50:51",
+            "target_url": "https://ts1.x1.international.travian.com/karte.php?x=89&y=-40"
         },
         {
             "target_name": "Oasis",
@@ -1016,9 +1280,9 @@
                 -46
             ],
             "troops": {
-                "Legionnaire": 20,
+                "Legionnaire": 0,
                 "Praetorian": 0,
-                "Imperian": 0,
+                "Imperian": 15,
                 "Equites Legati": 0,
                 "Equites Imperatoris": 0,
                 "Equites Caesaris": 0,
@@ -1029,11 +1293,35 @@
                 "Hero": 0
             },
             "cooldown": 240,
-            "last_attack": "2024-02-26 19:41:43",
+            "last_attack": "2024-03-03 16:22:01",
             "target_url": "https://ts1.x1.international.travian.com/karte.php?x=66&y=-46"
         },
         {
-            "target_name": "silverian",
+            "target_name": "Saint",
+            "target_type": "village",
+            "coordinates": [
+                82,
+                -52
+            ],
+            "troops": {
+                "Legionnaire": 0,
+                "Praetorian": 0,
+                "Imperian": 5,
+                "Equites Legati": 0,
+                "Equites Imperatoris": 0,
+                "Equites Caesaris": 0,
+                "Battering ram": 0,
+                "Fire Catapult": 0,
+                "Senator": 0,
+                "Settler": 0,
+                "Hero": 0
+            },
+            "cooldown": 240,
+            "last_attack": "2024-03-09 12:27:56",
+            "target_url": "https://ts1.x1.international.travian.com/karte.php?x=82&y=-52"
+        },
+        {
+            "target_name": "Silverian",
             "target_type": "village",
             "coordinates": [
                 67,
@@ -1042,7 +1330,7 @@
             "troops": {
                 "Legionnaire": 0,
                 "Praetorian": 0,
-                "Imperian": 10,
+                "Imperian": 5,
                 "Equites Legati": 0,
                 "Equites Imperatoris": 0,
                 "Equites Caesaris": 0,
@@ -1053,7 +1341,7 @@
                 "Hero": 0
             },
             "cooldown": 240,
-            "last_attack": "2024-02-28 00:11:04",
+            "last_attack": "2024-03-09 13:24:01",
             "target_url": "https://ts1.x1.international.travian.com/karte.php?x=67&y=-34"
         },
         {
@@ -1064,9 +1352,9 @@
                 -45
             ],
             "troops": {
-                "Legionnaire": 20,
+                "Legionnaire": 0,
                 "Praetorian": 0,
-                "Imperian": 0,
+                "Imperian": 15,
                 "Equites Legati": 0,
                 "Equites Imperatoris": 0,
                 "Equites Caesaris": 0,
@@ -1081,16 +1369,40 @@
             "target_url": "https://ts1.x1.international.travian.com/karte.php?x=65&y=-45"
         },
         {
-            "target_name": "Oasis",
-            "target_type": "oasis",
+            "target_name": "silx",
+            "target_type": "village",
             "coordinates": [
-                63,
-                -44
+                68,
+                -50
             ],
             "troops": {
-                "Legionnaire": 20,
+                "Legionnaire": 0,
                 "Praetorian": 0,
-                "Imperian": 0,
+                "Imperian": 5,
+                "Equites Legati": 0,
+                "Equites Imperatoris": 0,
+                "Equites Caesaris": 0,
+                "Battering ram": 0,
+                "Fire Catapult": 0,
+                "Senator": 0,
+                "Settler": 0,
+                "Hero": 0
+            },
+            "cooldown": 300,
+            "last_attack": "2024-03-09 08:49:32",
+            "target_url": "https://ts1.x1.international.travian.com/karte.php?x=68&y=-50"
+        },
+        {
+            "target_name": "Trauko",
+            "target_type": "village",
+            "coordinates": [
+                90,
+                -37
+            ],
+            "troops": {
+                "Legionnaire": 0,
+                "Praetorian": 0,
+                "Imperian": 5,
                 "Equites Legati": 0,
                 "Equites Imperatoris": 0,
                 "Equites Caesaris": 0,
@@ -1101,8 +1413,80 @@
                 "Hero": 0
             },
             "cooldown": 240,
-            "last_attack": "2024-02-27 07:52:26",
+            "last_attack": "2024-03-09 13:24:08",
+            "target_url": "https://ts1.x1.international.travian.com/karte.php?x=90&y=-37"
+        },
+        {
+            "target_name": "Boo",
+            "target_type": "village",
+            "coordinates": [
+                87,
+                -31
+            ],
+            "troops": {
+                "Legionnaire": 0,
+                "Praetorian": 0,
+                "Imperian": 5,
+                "Equites Legati": 0,
+                "Equites Imperatoris": 0,
+                "Equites Caesaris": 0,
+                "Battering ram": 0,
+                "Fire Catapult": 0,
+                "Senator": 0,
+                "Settler": 0,
+                "Hero": 0
+            },
+            "cooldown": 240,
+            "last_attack": "2024-03-09 13:24:13",
+            "target_url": "https://ts1.x1.international.travian.com/karte.php?x=87&y=-31"
+        },
+        {
+            "target_name": "Oasis",
+            "target_type": "oasis",
+            "coordinates": [
+                63,
+                -44
+            ],
+            "troops": {
+                "Legionnaire": 0,
+                "Praetorian": 0,
+                "Imperian": 15,
+                "Equites Legati": 0,
+                "Equites Imperatoris": 0,
+                "Equites Caesaris": 0,
+                "Battering ram": 0,
+                "Fire Catapult": 0,
+                "Senator": 0,
+                "Settler": 0,
+                "Hero": 0
+            },
+            "cooldown": 240,
+            "last_attack": "2024-03-09 13:24:20",
             "target_url": "https://ts1.x1.international.travian.com/karte.php?x=63&y=-44"
+        },
+        {
+            "target_name": "keatsstar",
+            "target_type": "village",
+            "coordinates": [
+                83,
+                -54
+            ],
+            "troops": {
+                "Legionnaire": 0,
+                "Praetorian": 0,
+                "Imperian": 5,
+                "Equites Legati": 0,
+                "Equites Imperatoris": 0,
+                "Equites Caesaris": 0,
+                "Battering ram": 0,
+                "Fire Catapult": 0,
+                "Senator": 0,
+                "Settler": 0,
+                "Hero": 0
+            },
+            "cooldown": 240,
+            "last_attack": "2024-03-09 13:24:25",
+            "target_url": "https://ts1.x1.international.travian.com/karte.php?x=83&y=-54"
         },
         {
             "target_name": "Oasis",
@@ -1112,9 +1496,9 @@
                 -37
             ],
             "troops": {
-                "Legionnaire": 20,
+                "Legionnaire": 0,
                 "Praetorian": 0,
-                "Imperian": 0,
+                "Imperian": 15,
                 "Equites Legati": 0,
                 "Equites Imperatoris": 0,
                 "Equites Caesaris": 0,
@@ -1125,7 +1509,7 @@
                 "Hero": 0
             },
             "cooldown": 240,
-            "last_attack": "2024-02-26 08:21:51",
+            "last_attack": "2024-03-08 23:14:13",
             "target_url": "https://ts1.x1.international.travian.com/karte.php?x=63&y=-37"
         },
         {
@@ -1136,9 +1520,9 @@
                 -45
             ],
             "troops": {
-                "Legionnaire": 20,
+                "Legionnaire": 0,
                 "Praetorian": 0,
-                "Imperian": 0,
+                "Imperian": 15,
                 "Equites Legati": 0,
                 "Equites Imperatoris": 0,
                 "Equites Caesaris": 0,
@@ -1149,8 +1533,32 @@
                 "Hero": 0
             },
             "cooldown": 240,
-            "last_attack": "2024-02-24 19:30:25",
+            "last_attack": "2024-03-05 09:21:00",
             "target_url": "https://ts1.x1.international.travian.com/karte.php?x=63&y=-45"
+        },
+        {
+            "target_name": "Macaron",
+            "target_type": "village",
+            "coordinates": [
+                90,
+                -34
+            ],
+            "troops": {
+                "Legionnaire": 0,
+                "Praetorian": 0,
+                "Imperian": 5,
+                "Equites Legati": 0,
+                "Equites Imperatoris": 0,
+                "Equites Caesaris": 0,
+                "Battering ram": 0,
+                "Fire Catapult": 0,
+                "Senator": 0,
+                "Settler": 0,
+                "Hero": 0
+            },
+            "cooldown": 240,
+            "last_attack": "2024-03-09 13:43:20",
+            "target_url": "https://ts1.x1.international.travian.com/karte.php?x=90&y=-34"
         },
         {
             "target_name": "Oasis",
@@ -1160,9 +1568,9 @@
                 -43
             ],
             "troops": {
-                "Legionnaire": 20,
+                "Legionnaire": 0,
                 "Praetorian": 0,
-                "Imperian": 0,
+                "Imperian": 15,
                 "Equites Legati": 0,
                 "Equites Imperatoris": 0,
                 "Equites Caesaris": 0,
@@ -1173,7 +1581,7 @@
                 "Hero": 0
             },
             "cooldown": 240,
-            "last_attack": "2024-02-26 08:21:58",
+            "last_attack": "2024-03-03 15:02:34",
             "target_url": "https://ts1.x1.international.travian.com/karte.php?x=62&y=-43"
         },
         {
@@ -1184,9 +1592,9 @@
                 -44
             ],
             "troops": {
-                "Legionnaire": 20,
+                "Legionnaire": 0,
                 "Praetorian": 0,
-                "Imperian": 0,
+                "Imperian": 15,
                 "Equites Legati": 0,
                 "Equites Imperatoris": 0,
                 "Equites Caesaris": 0,
@@ -1197,7 +1605,7 @@
                 "Hero": 0
             },
             "cooldown": 240,
-            "last_attack": "2024-01-01 00:00:00",
+            "last_attack": "2024-03-08 23:14:30",
             "target_url": "https://ts1.x1.international.travian.com/karte.php?x=62&y=-44"
         },
         {
@@ -1208,9 +1616,9 @@
                 -45
             ],
             "troops": {
-                "Legionnaire": 20,
+                "Legionnaire": 0,
                 "Praetorian": 0,
-                "Imperian": 0,
+                "Imperian": 15,
                 "Equites Legati": 0,
                 "Equites Imperatoris": 0,
                 "Equites Caesaris": 0,
@@ -1221,7 +1629,7 @@
                 "Hero": 0
             },
             "cooldown": 240,
-            "last_attack": "2024-01-01 00:00:00",
+            "last_attack": "2024-03-03 16:05:49",
             "target_url": "https://ts1.x1.international.travian.com/karte.php?x=62&y=-45"
         },
         {
@@ -1232,9 +1640,9 @@
                 -42
             ],
             "troops": {
-                "Legionnaire": 20,
+                "Legionnaire": 0,
                 "Praetorian": 0,
-                "Imperian": 0,
+                "Imperian": 15,
                 "Equites Legati": 0,
                 "Equites Imperatoris": 0,
                 "Equites Caesaris": 0,
@@ -1245,8 +1653,152 @@
                 "Hero": 0
             },
             "cooldown": 240,
-            "last_attack": "2024-02-26 08:22:11",
+            "last_attack": "2024-03-03 16:22:14",
             "target_url": "https://ts1.x1.international.travian.com/karte.php?x=61&y=-42"
+        },
+        {
+            "target_name": "HolyAce",
+            "target_type": "village",
+            "coordinates": [
+                79,
+                -57
+            ],
+            "troops": {
+                "Legionnaire": 0,
+                "Praetorian": 0,
+                "Imperian": 10,
+                "Equites Legati": 0,
+                "Equites Imperatoris": 0,
+                "Equites Caesaris": 0,
+                "Battering ram": 0,
+                "Fire Catapult": 0,
+                "Senator": 0,
+                "Settler": 0,
+                "Hero": 0
+            },
+            "cooldown": 300,
+            "last_attack": "2024-03-09 08:50:06",
+            "target_url": "https://ts1.x1.international.travian.com/karte.php?x=79&y=-57"
+        },
+        {
+            "target_name": "Alexandl",
+            "target_type": "village",
+            "coordinates": [
+                61,
+                -47
+            ],
+            "troops": {
+                "Legionnaire": 0,
+                "Praetorian": 0,
+                "Imperian": 5,
+                "Equites Legati": 0,
+                "Equites Imperatoris": 0,
+                "Equites Caesaris": 0,
+                "Battering ram": 0,
+                "Fire Catapult": 0,
+                "Senator": 0,
+                "Settler": 0,
+                "Hero": 0
+            },
+            "cooldown": 240,
+            "last_attack": "2024-03-09 13:43:35",
+            "target_url": "https://ts1.x1.international.travian.com/karte.php?x=61&y=-47"
+        },
+        {
+            "target_name": "bubblechrix",
+            "target_type": "village",
+            "coordinates": [
+                91,
+                -31
+            ],
+            "troops": {
+                "Legionnaire": 0,
+                "Praetorian": 0,
+                "Imperian": 5,
+                "Equites Legati": 0,
+                "Equites Imperatoris": 0,
+                "Equites Caesaris": 0,
+                "Battering ram": 0,
+                "Fire Catapult": 0,
+                "Senator": 0,
+                "Settler": 0,
+                "Hero": 0
+            },
+            "cooldown": 240,
+            "last_attack": "2024-03-09 13:43:41",
+            "target_url": "https://ts1.x1.international.travian.com/karte.php?x=91&y=-31"
+        },
+        {
+            "target_name": "Akebono",
+            "target_type": "village",
+            "coordinates": [
+                80,
+                -58
+            ],
+            "troops": {
+                "Legionnaire": 0,
+                "Praetorian": 0,
+                "Imperian": 0,
+                "Equites Legati": 0,
+                "Equites Imperatoris": 5,
+                "Equites Caesaris": 0,
+                "Battering ram": 0,
+                "Fire Catapult": 0,
+                "Senator": 0,
+                "Settler": 0,
+                "Hero": 0
+            },
+            "cooldown": 240,
+            "last_attack": "2024-03-09 17:19:59",
+            "target_url": "https://ts1.x1.international.travian.com/karte.php?x=80&y=-58"
+        },
+        {
+            "target_name": "illumee",
+            "target_type": "village",
+            "coordinates": [
+                92,
+                -32
+            ],
+            "troops": {
+                "Legionnaire": 0,
+                "Praetorian": 0,
+                "Imperian": 0,
+                "Equites Legati": 0,
+                "Equites Imperatoris": 5,
+                "Equites Caesaris": 0,
+                "Battering ram": 0,
+                "Fire Catapult": 0,
+                "Senator": 0,
+                "Settler": 0,
+                "Hero": 0
+            },
+            "cooldown": 300,
+            "last_attack": "2024-03-09 17:38:26",
+            "target_url": "https://ts1.x1.international.travian.com/karte.php?x=92&y=-32"
+        },
+        {
+            "target_name": "emtec12",
+            "target_type": "village",
+            "coordinates": [
+                76,
+                -59
+            ],
+            "troops": {
+                "Legionnaire": 0,
+                "Praetorian": 0,
+                "Imperian": 0,
+                "Equites Legati": 0,
+                "Equites Imperatoris": 50,
+                "Equites Caesaris": 0,
+                "Battering ram": 0,
+                "Fire Catapult": 0,
+                "Senator": 0,
+                "Settler": 0,
+                "Hero": 0
+            },
+            "cooldown": 600,
+            "last_attack": "2024-03-09 09:40:33",
+            "target_url": "https://ts1.x1.international.travian.com/karte.php?x=76&y=-59"
         },
         {
             "target_name": "Oasis",
@@ -1256,9 +1808,9 @@
                 -39
             ],
             "troops": {
-                "Legionnaire": 20,
+                "Legionnaire": 0,
                 "Praetorian": 0,
-                "Imperian": 0,
+                "Imperian": 15,
                 "Equites Legati": 0,
                 "Equites Imperatoris": 0,
                 "Equites Caesaris": 0,
@@ -1284,7 +1836,7 @@
                 "Praetorian": 0,
                 "Imperian": 0,
                 "Equites Legati": 0,
-                "Equites Imperatoris": 10,
+                "Equites Imperatoris": 5,
                 "Equites Caesaris": 0,
                 "Battering ram": 0,
                 "Fire Catapult": 0,
@@ -1293,7 +1845,7 @@
                 "Hero": 0
             },
             "cooldown": 240,
-            "last_attack": "2024-02-27 22:52:18",
+            "last_attack": "2024-03-09 14:56:34",
             "target_url": "https://ts1.x1.international.travian.com/karte.php?x=67&y=-57"
         },
         {
@@ -1304,9 +1856,9 @@
                 -44
             ],
             "troops": {
-                "Legionnaire": 20,
+                "Legionnaire": 0,
                 "Praetorian": 0,
-                "Imperian": 0,
+                "Imperian": 15,
                 "Equites Legati": 0,
                 "Equites Imperatoris": 0,
                 "Equites Caesaris": 0,
@@ -1317,8 +1869,32 @@
                 "Hero": 0
             },
             "cooldown": 240,
-            "last_attack": "2024-02-24 09:33:47",
+            "last_attack": "2024-03-09 13:43:52",
             "target_url": "https://ts1.x1.international.travian.com/karte.php?x=58&y=-44"
+        },
+        {
+            "target_name": "ShlabOnMeKnob",
+            "target_type": "village",
+            "coordinates": [
+                80,
+                -60
+            ],
+            "troops": {
+                "Legionnaire": 0,
+                "Praetorian": 0,
+                "Imperian": 0,
+                "Equites Legati": 0,
+                "Equites Imperatoris": 5,
+                "Equites Caesaris": 0,
+                "Battering ram": 0,
+                "Fire Catapult": 0,
+                "Senator": 0,
+                "Settler": 0,
+                "Hero": 0
+            },
+            "cooldown": 240,
+            "last_attack": "2024-03-09 15:15:09",
+            "target_url": "https://ts1.x1.international.travian.com/karte.php?x=80&y=-60"
         },
         {
             "target_name": "Oasis",
@@ -1328,9 +1904,9 @@
                 -46
             ],
             "troops": {
-                "Legionnaire": 20,
+                "Legionnaire": 0,
                 "Praetorian": 0,
-                "Imperian": 0,
+                "Imperian": 15,
                 "Equites Legati": 0,
                 "Equites Imperatoris": 0,
                 "Equites Caesaris": 0,
@@ -1345,6 +1921,30 @@
             "target_url": "https://ts1.x1.international.travian.com/karte.php?x=58&y=-46"
         },
         {
+            "target_name": "dynamit",
+            "target_type": "village",
+            "coordinates": [
+                76,
+                -62
+            ],
+            "troops": {
+                "Legionnaire": 0,
+                "Praetorian": 0,
+                "Imperian": 0,
+                "Equites Legati": 0,
+                "Equites Imperatoris": 5,
+                "Equites Caesaris": 0,
+                "Battering ram": 0,
+                "Fire Catapult": 0,
+                "Senator": 0,
+                "Settler": 0,
+                "Hero": 0
+            },
+            "cooldown": 240,
+            "last_attack": "2024-03-09 17:58:33",
+            "target_url": "https://ts1.x1.international.travian.com/karte.php?x=76&y=-62"
+        },
+        {
             "target_name": "Oasis",
             "target_type": "oasis",
             "coordinates": [
@@ -1352,9 +1952,9 @@
                 -46
             ],
             "troops": {
-                "Legionnaire": 20,
+                "Legionnaire": 0,
                 "Praetorian": 0,
-                "Imperian": 0,
+                "Imperian": 15,
                 "Equites Legati": 0,
                 "Equites Imperatoris": 0,
                 "Equites Caesaris": 0,
@@ -1376,9 +1976,9 @@
                 -42
             ],
             "troops": {
-                "Legionnaire": 20,
+                "Legionnaire": 0,
                 "Praetorian": 0,
-                "Imperian": 0,
+                "Imperian": 15,
                 "Equites Legati": 0,
                 "Equites Imperatoris": 0,
                 "Equites Caesaris": 0,
@@ -1389,8 +1989,80 @@
                 "Hero": 0
             },
             "cooldown": 240,
-            "last_attack": "2024-02-22 13:10:54",
+            "last_attack": "2024-03-09 04:54:17",
             "target_url": "https://ts1.x1.international.travian.com/karte.php?x=55&y=-42"
+        },
+        {
+            "target_name": "arab guy 2",
+            "target_type": "village",
+            "coordinates": [
+                59,
+                -54
+            ],
+            "troops": {
+                "Legionnaire": 0,
+                "Praetorian": 0,
+                "Imperian": 0,
+                "Equites Legati": 0,
+                "Equites Imperatoris": 5,
+                "Equites Caesaris": 0,
+                "Battering ram": 0,
+                "Fire Catapult": 0,
+                "Senator": 0,
+                "Settler": 0,
+                "Hero": 0
+            },
+            "cooldown": 360,
+            "last_attack": "2024-03-09 17:58:44",
+            "target_url": "https://ts1.x1.international.travian.com/karte.php?x=59&y=-54"
+        },
+        {
+            "target_name": "vesp13",
+            "target_type": "village",
+            "coordinates": [
+                54,
+                -44
+            ],
+            "troops": {
+                "Legionnaire": 0,
+                "Praetorian": 0,
+                "Imperian": 0,
+                "Equites Legati": 0,
+                "Equites Imperatoris": 5,
+                "Equites Caesaris": 0,
+                "Battering ram": 0,
+                "Fire Catapult": 0,
+                "Senator": 0,
+                "Settler": 0,
+                "Hero": 0
+            },
+            "cooldown": 240,
+            "last_attack": "2024-03-09 17:58:50",
+            "target_url": "https://ts1.x1.international.travian.com/karte.php?x=54&y=-44"
+        },
+        {
+            "target_name": "ISuma",
+            "target_type": "village",
+            "coordinates": [
+                57,
+                -55
+            ],
+            "troops": {
+                "Legionnaire": 0,
+                "Praetorian": 0,
+                "Imperian": 0,
+                "Equites Legati": 0,
+                "Equites Imperatoris": 5,
+                "Equites Caesaris": 0,
+                "Battering ram": 0,
+                "Fire Catapult": 0,
+                "Senator": 0,
+                "Settler": 0,
+                "Hero": 0
+            },
+            "cooldown": 240,
+            "last_attack": "2024-03-09 17:58:56",
+            "target_url": "https://ts1.x1.international.travian.com/karte.php?x=57&y=-55"
         },
         {
             "target_name": "Oasis",
@@ -1400,9 +2072,9 @@
                 -47
             ],
             "troops": {
-                "Legionnaire": 20,
+                "Legionnaire": 0,
                 "Praetorian": 0,
-                "Imperian": 0,
+                "Imperian": 15,
                 "Equites Legati": 0,
                 "Equites Imperatoris": 0,
                 "Equites Caesaris": 0,
@@ -1415,6 +2087,224 @@
             "cooldown": 300,
             "last_attack": "2024-01-01 00:00:00",
             "target_url": "https://ts1.x1.international.travian.com/karte.php?x=52&y=-47"
+        }
+    ],
+    "SPM 02": [
+        {
+            "target_name": "oasis",
+            "target_type": "oasis",
+            "coordinates": [
+                44,
+                -114
+            ],
+            "troops": {
+                "Legionnaire": 0,
+                "Praetorian": 0,
+                "Imperian": 0,
+                "Equites Legati": 0,
+                "Equites Imperatoris": 0,
+                "Equites Caesaris": 0,
+                "Battering ram": 0,
+                "Fire Catapult": 0,
+                "Senator": 0,
+                "Settler": 0,
+                "Hero": 1
+            },
+            "cooldown": 240,
+            "last_attack": "2024-03-09 12:09:51",
+            "target_url": "https://ts1.x1.international.travian.com/karte.php?x=44&y=-114"
+        },
+        {
+            "target_name": "oasis",
+            "target_type": "oasis",
+            "coordinates": [
+                44,
+                -111
+            ],
+            "troops": {
+                "Legionnaire": 0,
+                "Praetorian": 0,
+                "Imperian": 15,
+                "Equites Legati": 0,
+                "Equites Imperatoris": 0,
+                "Equites Caesaris": 0,
+                "Battering ram": 0,
+                "Fire Catapult": 0,
+                "Senator": 0,
+                "Settler": 0,
+                "Hero": 0
+            },
+            "cooldown": 240,
+            "last_attack": "2024-03-09 18:46:53",
+            "target_url": "https://ts1.x1.international.travian.com/karte.php?x=44&y=-111"
+        },
+        {
+            "target_name": "oasis",
+            "target_type": "oasis",
+            "coordinates": [
+                44,
+                -115
+            ],
+            "troops": {
+                "Legionnaire": 0,
+                "Praetorian": 0,
+                "Imperian": 0,
+                "Equites Legati": 0,
+                "Equites Imperatoris": 0,
+                "Equites Caesaris": 0,
+                "Battering ram": 0,
+                "Fire Catapult": 0,
+                "Senator": 0,
+                "Settler": 0,
+                "Hero": 1
+            },
+            "cooldown": 240,
+            "last_attack": "2024-03-09 10:37:30",
+            "target_url": "https://ts1.x1.international.travian.com/karte.php?x=44&y=-115"
+        },
+        {
+            "target_name": "oasis",
+            "target_type": "oasis",
+            "coordinates": [
+                39,
+                -112
+            ],
+            "troops": {
+                "Legionnaire": 0,
+                "Praetorian": 0,
+                "Imperian": 15,
+                "Equites Legati": 0,
+                "Equites Imperatoris": 0,
+                "Equites Caesaris": 0,
+                "Battering ram": 0,
+                "Fire Catapult": 0,
+                "Senator": 0,
+                "Settler": 0,
+                "Hero": 0
+            },
+            "cooldown": 240,
+            "last_attack": "2024-03-09 09:27:39",
+            "target_url": "https://ts1.x1.international.travian.com/karte.php?x=39&y=-112"
+        },
+        {
+            "target_name": "oasis",
+            "target_type": "oasis",
+            "coordinates": [
+                45,
+                -118
+            ],
+            "troops": {
+                "Legionnaire": 0,
+                "Praetorian": 0,
+                "Imperian": 15,
+                "Equites Legati": 0,
+                "Equites Imperatoris": 0,
+                "Equites Caesaris": 0,
+                "Battering ram": 0,
+                "Fire Catapult": 0,
+                "Senator": 0,
+                "Settler": 0,
+                "Hero": 0
+            },
+            "cooldown": 240,
+            "last_attack": "2024-01-01 00:00:00",
+            "target_url": "https://ts1.x1.international.travian.com/karte.php?x=45&y=-118"
+        },
+        {
+            "target_name": "oasis",
+            "target_type": "oasis",
+            "coordinates": [
+                42,
+                -107
+            ],
+            "troops": {
+                "Legionnaire": 0,
+                "Praetorian": 0,
+                "Imperian": 0,
+                "Equites Legati": 0,
+                "Equites Imperatoris": 0,
+                "Equites Caesaris": 0,
+                "Battering ram": 0,
+                "Fire Catapult": 0,
+                "Senator": 0,
+                "Settler": 0,
+                "Hero": 0
+            },
+            "cooldown": 240,
+            "last_attack": "2024-01-01 00:00:00",
+            "target_url": "https://ts1.x1.international.travian.com/karte.php?x=42&y=-107"
+        },
+        {
+            "target_name": "oasis",
+            "target_type": "oasis",
+            "coordinates": [
+                40,
+                -119
+            ],
+            "troops": {
+                "Legionnaire": 0,
+                "Praetorian": 0,
+                "Imperian": 15,
+                "Equites Legati": 0,
+                "Equites Imperatoris": 0,
+                "Equites Caesaris": 0,
+                "Battering ram": 0,
+                "Fire Catapult": 0,
+                "Senator": 0,
+                "Settler": 0,
+                "Hero": 0
+            },
+            "cooldown": 240,
+            "last_attack": "2024-01-01 00:00:00",
+            "target_url": "https://ts1.x1.international.travian.com/karte.php?x=40&y=-119"
+        },
+        {
+            "target_name": "oasis",
+            "target_type": "oasis",
+            "coordinates": [
+                37,
+                -117
+            ],
+            "troops": {
+                "Legionnaire": 0,
+                "Praetorian": 0,
+                "Imperian": 15,
+                "Equites Legati": 0,
+                "Equites Imperatoris": 0,
+                "Equites Caesaris": 0,
+                "Battering ram": 0,
+                "Fire Catapult": 0,
+                "Senator": 0,
+                "Settler": 0,
+                "Hero": 0
+            },
+            "cooldown": 240,
+            "last_attack": "2024-01-01 00:00:00",
+            "target_url": "https://ts1.x1.international.travian.com/karte.php?x=37&y=-117"
+        },
+        {
+            "target_name": "oasis",
+            "target_type": "oasis",
+            "coordinates": [
+                47,
+                -119
+            ],
+            "troops": {
+                "Legionnaire": 0,
+                "Praetorian": 0,
+                "Imperian": 15,
+                "Equites Legati": 0,
+                "Equites Imperatoris": 0,
+                "Equites Caesaris": 0,
+                "Battering ram": 0,
+                "Fire Catapult": 0,
+                "Senator": 0,
+                "Settler": 0,
+                "Hero": 0
+            },
+            "cooldown": 240,
+            "last_attack": "2024-01-01 00:00:00",
+            "target_url": "https://ts1.x1.international.travian.com/karte.php?x=47&y=-119"
         }
     ]
 }

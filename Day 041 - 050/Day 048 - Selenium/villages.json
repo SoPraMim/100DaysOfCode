@@ -3,11 +3,11 @@
         "resources_layout": {
             "1": {
                 "resource": "Woodcutter",
-                "level": 8
+                "level": 10
             },
             "2": {
                 "resource": "Cropland",
-                "level": 3
+                "level": 8
             },
             "3": {
                 "resource": "Woodcutter",
@@ -19,7 +19,7 @@
             },
             "5": {
                 "resource": "Clay Pit",
-                "level": 10
+                "level": 9
             },
             "6": {
                 "resource": "Clay Pit",
@@ -31,11 +31,11 @@
             },
             "8": {
                 "resource": "Cropland",
-                "level": 2
+                "level": 8
             },
             "9": {
                 "resource": "Cropland",
-                "level": 2
+                "level": 7
             },
             "10": {
                 "resource": "Iron Mine",
@@ -47,11 +47,11 @@
             },
             "12": {
                 "resource": "Cropland",
-                "level": 2
+                "level": 7
             },
             "13": {
                 "resource": "Cropland",
-                "level": 8
+                "level": 7
             },
             "14": {
                 "resource": "Woodcutter",
@@ -59,7 +59,7 @@
             },
             "15": {
                 "resource": "Cropland",
-                "level": 8
+                "level": 7
             },
             "16": {
                 "resource": "Clay Pit",
@@ -72,176 +72,6 @@
             "18": {
                 "resource": "Clay Pit",
                 "level": 9
-            }
-        },
-        "buildings_layout": {
-            "19": {
-                "building": "empty",
-                "level": 0
-            },
-            "20": {
-                "building": "Stable",
-                "level": 1
-            },
-            "21": {
-                "building": "Academy",
-                "level": 10
-            },
-            "22": {
-                "building": "Smithy",
-                "level": 5
-            },
-            "23": {
-                "building": "Hero's Mansion",
-                "level": 10
-            },
-            "24": {
-                "building": "empty",
-                "level": 0
-            },
-            "25": {
-                "building": "empty",
-                "level": 0
-            },
-            "26": {
-                "building": "Main Building",
-                "level": 2
-            },
-            "27": {
-                "building": "Brickyard",
-                "level": 3
-            },
-            "28": {
-                "building": "empty",
-                "level": 0
-            },
-            "29": {
-                "building": "Barracks",
-                "level": 1
-            },
-            "30": {
-                "building": "Town Hall",
-                "level": 1
-            },
-            "31": {
-                "building": "Warehouse",
-                "level": 6
-            },
-            "32": {
-                "building": "Granary",
-                "level": 3
-            },
-            "33": {
-                "building": "empty",
-                "level": 0
-            },
-            "34": {
-                "building": "Sawmill",
-                "level": 2
-            },
-            "35": {
-                "building": "Marketplace",
-                "level": 17
-            },
-            "36": {
-                "building": "empty",
-                "level": 0
-            },
-            "37": {
-                "building": "Cranny",
-                "level": 10
-            },
-            "38": {
-                "building": "empty",
-                "level": 0
-            },
-            "39": {
-                "building": "Rally Point",
-                "level": 3
-            },
-            "40": {
-                "building": "empty",
-                "level": 0
-            }
-        },
-        "coordinates": [
-            77,
-            -41
-        ]
-    },
-    "SPM 02": {
-        "resources_layout": {
-            "1": {
-                "resource": "Cropland",
-                "level": 3
-            },
-            "2": {
-                "resource": "Cropland",
-                "level": 3
-            },
-            "3": {
-                "resource": "Woodcutter",
-                "level": 4
-            },
-            "4": {
-                "resource": "Iron Mine",
-                "level": 4
-            },
-            "5": {
-                "resource": "Cropland",
-                "level": 3
-            },
-            "6": {
-                "resource": "Cropland",
-                "level": 3
-            },
-            "7": {
-                "resource": "Cropland",
-                "level": 3
-            },
-            "8": {
-                "resource": "Cropland",
-                "level": 2
-            },
-            "9": {
-                "resource": "Cropland",
-                "level": 2
-            },
-            "10": {
-                "resource": "Cropland",
-                "level": 2
-            },
-            "11": {
-                "resource": "Cropland",
-                "level": 2
-            },
-            "12": {
-                "resource": "Cropland",
-                "level": 2
-            },
-            "13": {
-                "resource": "Cropland",
-                "level": 2
-            },
-            "14": {
-                "resource": "Cropland",
-                "level": 2
-            },
-            "15": {
-                "resource": "Cropland",
-                "level": 2
-            },
-            "16": {
-                "resource": "Clay Pit",
-                "level": 4
-            },
-            "17": {
-                "resource": "Cropland",
-                "level": 2
-            },
-            "18": {
-                "resource": "Cropland",
-                "level": 2
             }
         },
         "buildings_layout": {
@@ -259,15 +89,15 @@
             },
             "22": {
                 "building": "Smithy",
-                "level": 3
+                "level": 5
             },
             "23": {
-                "building": "empty",
-                "level": 0
+                "building": "Hero's Mansion",
+                "level": 10
             },
             "24": {
-                "building": "Palace",
-                "level": 1
+                "building": "Residence",
+                "level": 10
             },
             "25": {
                 "building": "empty",
@@ -275,7 +105,177 @@
             },
             "26": {
                 "building": "Main Building",
+                "level": 15
+            },
+            "27": {
+                "building": "empty",
+                "level": 0
+            },
+            "28": {
+                "building": "empty",
+                "level": 0
+            },
+            "29": {
+                "building": "Barracks",
                 "level": 10
+            },
+            "30": {
+                "building": "Town Hall",
+                "level": 1
+            },
+            "31": {
+                "building": "Warehouse",
+                "level": 11
+            },
+            "32": {
+                "building": "Granary",
+                "level": 10
+            },
+            "33": {
+                "building": "empty",
+                "level": 0
+            },
+            "34": {
+                "building": "Sawmill",
+                "level": 1
+            },
+            "35": {
+                "building": "Marketplace",
+                "level": 17
+            },
+            "36": {
+                "building": "empty",
+                "level": 0
+            },
+            "37": {
+                "building": "Cranny",
+                "level": 10
+            },
+            "38": {
+                "building": "Grain Mill",
+                "level": 2
+            },
+            "39": {
+                "building": "Rally Point",
+                "level": 3
+            },
+            "40": {
+                "building": "City Wall",
+                "level": 6
+            }
+        },
+        "coordinates": [
+            77,
+            -41
+        ]
+    },
+    "SPM 02": {
+        "resources_layout": {
+            "1": {
+                "resource": "Cropland",
+                "level": 2
+            },
+            "2": {
+                "resource": "Cropland",
+                "level": 2
+            },
+            "3": {
+                "resource": "Woodcutter",
+                "level": 3
+            },
+            "4": {
+                "resource": "Iron Mine",
+                "level": 2
+            },
+            "5": {
+                "resource": "Cropland",
+                "level": 1
+            },
+            "6": {
+                "resource": "Cropland",
+                "level": 1
+            },
+            "7": {
+                "resource": "Cropland",
+                "level": 1
+            },
+            "8": {
+                "resource": "Cropland",
+                "level": 1
+            },
+            "9": {
+                "resource": "Cropland",
+                "level": 1
+            },
+            "10": {
+                "resource": "Cropland",
+                "level": 1
+            },
+            "11": {
+                "resource": "Cropland",
+                "level": 1
+            },
+            "12": {
+                "resource": "Cropland",
+                "level": 1
+            },
+            "13": {
+                "resource": "Cropland",
+                "level": 1
+            },
+            "14": {
+                "resource": "Cropland",
+                "level": 1
+            },
+            "15": {
+                "resource": "Cropland",
+                "level": 1
+            },
+            "16": {
+                "resource": "Clay Pit",
+                "level": 2
+            },
+            "17": {
+                "resource": "Cropland",
+                "level": 1
+            },
+            "18": {
+                "resource": "Cropland",
+                "level": 1
+            }
+        },
+        "buildings_layout": {
+            "19": {
+                "building": "empty",
+                "level": 0
+            },
+            "20": {
+                "building": "Stable",
+                "level": 5
+            },
+            "21": {
+                "building": "Academy",
+                "level": 5
+            },
+            "22": {
+                "building": "Smithy",
+                "level": 3
+            },
+            "23": {
+                "building": "empty",
+                "level": 0
+            },
+            "24": {
+                "building": "empty",
+                "level": 0
+            },
+            "25": {
+                "building": "empty",
+                "level": 0
+            },
+            "26": {
+                "building": "Main Building",
+                "level": 6
             },
             "27": {
                 "building": "empty",
@@ -290,16 +290,16 @@
                 "level": 3
             },
             "30": {
-                "building": "Town Hall",
+                "building": "empty",
                 "level": 0
             },
             "31": {
                 "building": "Warehouse",
-                "level": 10
+                "level": 8
             },
             "32": {
                 "building": "Granary",
-                "level": 10
+                "level": 7
             },
             "33": {
                 "building": "empty",

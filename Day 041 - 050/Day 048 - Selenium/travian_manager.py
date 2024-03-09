@@ -1,9 +1,11 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
 import time
 import os
 import json
 from target_manager import TargetManager
+from trade_routes import TradeRoutesManager
 from datetime import datetime, timedelta
 from typing import Callable
 
@@ -25,6 +27,7 @@ class Travian:
         self.targets = TargetManager()
         self.available_troops = {}
         self.__queue = []
+        self.trade_routes = TradeRoutesManager()
         
         self.login()
         self.load_villages()
@@ -76,29 +79,49 @@ class Travian:
         self.warehouse_capacity = int(self.warehouse_capacity.encode('ascii', errors='ignore').strip().decode('ascii').replace(",",""))
         self.granary_capacity = self.driver.find_element(By.CSS_SELECTOR,".granary .capacity").text
         self.granary_capacity = int(self.granary_capacity.encode('ascii', errors='ignore').strip().decode('ascii').replace(",",""))
-        self.resources['wood'] = int(self.driver.find_element(By.CSS_SELECTOR,"#l1").text.replace(",",""))
-        self.resources['clay'] = int(self.driver.find_element(By.CSS_SELECTOR,"#l2").text.replace(",",""))
-        self.resources['iron'] = int(self.driver.find_element(By.CSS_SELECTOR,"#l3").text.replace(",",""))
-        self.resources['crop'] = int(self.driver.find_element(By.CSS_SELECTOR,"#l4").text.replace(",",""))
+        self.resources['Lumber'] = int(self.driver.find_element(By.CSS_SELECTOR,"#l1").text.replace(",",""))
+        self.resources['Clay'] = int(self.driver.find_element(By.CSS_SELECTOR,"#l2").text.replace(",",""))
+        self.resources['Iron'] = int(self.driver.find_element(By.CSS_SELECTOR,"#l3").text.replace(",",""))
+        self.resources['Crop'] = int(self.driver.find_element(By.CSS_SELECTOR,"#l4").text.replace(",",""))
         
     def update_villages(self):
-        self.driver.find_element(By.CSS_SELECTOR,"#sidebarBoxVillagelist .header .buttonsWrapper a").click()
-        time.sleep(WAIT_TIMER)
-        n_villages = len(self.driver.find_elements(By.CSS_SELECTOR,"tbody tr"))
-        for i in range(n_villages):
-            village_name = self.driver.find_element(By.XPATH,f"/html/body/div[3]/div[3]/div[3]/div[2]/div/table/tbody/tr/td[{1+i}]/a").text
+        village_list = self.driver.find_element(By.CSS_SELECTOR,".villageList")
+        village_entries = village_list.find_elements(By.CSS_SELECTOR,".listEntry")
+        for entry in village_entries:
+            village_name = entry.find_element(By.CSS_SELECTOR,".name").text
+            coordinates = entry.find_element(By.CSS_SELECTOR,".coordinates").text.replace("|",",").replace("−","-")
+            coordinates = list(eval(coordinates.encode('ascii', errors='ignore').strip().decode('ascii')))
+            
             self.villages[village_name] = {
                 "resources_layout":{},
                 "buildings_layout":{},
-                "coordinates": [],
+                "coordinates": coordinates,
             }
-            if village_name == "SPM 01":
-                self.villages[village_name]["coordinates"] = [77,-41]
+        for village in self.villages:
+            self.go_to_village(village)
             self.identify_fields()
             self.identify_buildings()
-            self.driver.find_element(By.CSS_SELECTOR,"#sidebarBoxVillagelist .header .buttonsWrapper a").click()
-            time.sleep(WAIT_TIMER)
         self.save_villages()
+        self.go_to_resources_view()
+        
+    # def update_villages(self):
+    #     self.driver.find_element(By.CSS_SELECTOR,"#sidebarBoxVillagelist .header .buttonsWrapper a").click()
+    #     time.sleep(WAIT_TIMER)
+    #     n_villages = len(self.driver.find_elements(By.CSS_SELECTOR,"tbody tr"))
+    #     for i in range(n_villages):
+    #         village_name = self.driver.find_element(By.XPATH,f"/html/body/div[3]/div[3]/div[3]/div[2]/div/table/tbody/tr/td[{1+i}]/a").text
+    #         self.villages[village_name] = {
+    #             "resources_layout":{},
+    #             "buildings_layout":{},
+    #             "coordinates": [],
+    #         }
+    #         if village_name == "SPM 01":
+    #             self.villages[village_name]["coordinates"] = [77,-41]
+    #         self.identify_fields()
+    #         self.identify_buildings()
+    #         self.driver.find_element(By.CSS_SELECTOR,"#sidebarBoxVillagelist .header .buttonsWrapper a").click()
+    #         time.sleep(WAIT_TIMER)
+    #     self.save_villages()
         
     def go_to_resources_view(self):
         self.driver.find_element(By.CSS_SELECTOR,".resourceView").click()
@@ -131,7 +154,10 @@ class Travian:
         self.go_to_buildings_view()
         for i in range(22):
             try:
-                self.driver.find_element(By.CSS_SELECTOR,f"#villageContent .a{19+i}").click()
+                if i == 21:
+                    self.driver.get("https://ts1.x1.international.travian.com/build.php?id=40&gid=31")
+                else:
+                    self.driver.find_element(By.CSS_SELECTOR,f"#villageContent .a{19+i}").click()
                 time.sleep(WAIT_TIMER)
                 building = self.driver.find_element(By.CSS_SELECTOR,"h1").text
                 (building_name,level) = building.split(" Level ")
@@ -161,9 +187,9 @@ class Travian:
                 
     def improve_building(self,city_from:str, building_name:str):
         """Improves the building selected. If more than one building of the same name exists, improves the least developed one."""
-        building_name = building_name.title()
-        # if self.active_city != city_from:
-        #     self.go_to_city(city_from)
+        self.update_active_city()
+        if self.active_city != city_from:
+            self.go_to_village(city_from)
         building_id = self.__query_building(building_name)
         if building_id is None:
             raise ValueError("Building not found.")
@@ -177,7 +203,10 @@ class Travian:
         else:
             layout = "buildings_layout"
             self.go_to_buildings_view()
-            self.driver.find_element(By.CSS_SELECTOR,f"#villageContent .a{building_id}").click()
+            if building_id == "40":
+                self.driver.get("https://ts1.x1.international.travian.com/build.php?id=40&gid=31")
+            else:
+                self.driver.find_element(By.CSS_SELECTOR,f"#villageContent .a{building_id}").click()
             time.sleep(WAIT_TIMER)
             
         upgrade_button = self.driver.find_element(By.XPATH,f"/html/body/div[3]/div[3]/div[3]/div[2]/div/div/div[3]/div[3]/div[1]/button")
@@ -193,7 +222,7 @@ class Travian:
             return False
         
     def __query_building(self,building_name:str):
-        """Returns the id no of the building name. If more than one building is found returns  the least developed one."""
+        """Returns the id no of the building name. If more than one building is found returns the least developed one."""
         self.update_active_city()
         if building_name in ['Woodcutter','Clay Pit','Iron Mine','Cropland']:
             return self.__query_resources_layout(building_name)
@@ -215,7 +244,7 @@ class Travian:
     def __query_building_layout(self,building_name:str):
         """Returns the id of a building"""
         buildings_list:dict = self.villages[self.active_city]['buildings_layout']
-        possible_buildings ={key:item for key,item in buildings_list.items() if item['building'] == building_name.title()}
+        possible_buildings ={key:item for key,item in buildings_list.items() if item['building'] == building_name}
         try:
             lowest_level = min([item['level'] for _,item in possible_buildings.items()])
         except ValueError:
@@ -245,8 +274,21 @@ class Travian:
         return self.active_city
     
     def go_to_village(self,new_city:str):
-        #TODO Select a new village to control.
-        pass
+        self.update_active_city()
+        if self.active_city == new_city:
+            return
+        village_list = self.driver.find_element(By.CSS_SELECTOR,".villageList")
+        village_entries = village_list.find_elements(By.CSS_SELECTOR,".listEntry")
+        for entry in village_entries:
+            entry_text = entry.text
+            if new_city in entry_text:
+                break
+        entry.find_element(By.TAG_NAME,"a").click()
+        time.sleep(WAIT_TIMER)
+        self.update_active_city()
+        
+    def get_coordinates(self, city:str) -> list:
+        return self.villages[city]["coordinates"]
 
     # --- Attacks-Related Functions --- #    
     def add_target(self,village_from,target_url,target_name,target_type,troops,cooldown):
@@ -265,6 +307,9 @@ class Travian:
                                     troops=troops,
                                     cooldown=cooldown)
         self.targets.sort_targets_by_dist(city_from=village_from,city_from_coordinates=self.villages[village_from]["coordinates"])
+        
+    def delete_target_by_idx(self, city_from, idx):
+        self.targets.delete_target_by_idx(city_from, idx)
         
         
     def get_targets(self,city_from:str):
@@ -303,18 +348,71 @@ class Travian:
     def farm_targets(self):
         for village in self.villages:
             for target in self.targets.get_targets(village):
-                if not self.__check_cooldown_over(target):
+                self.go_to_village(village)
+                # 1. check the cooldown
+                # Send to hero to occupied nature oasis.
+                if target['target_type'] == 'oasis':
+                    oasis_empty = self.__is_target_empty(target)
+                    oasis_player_owned = self.is_player_owned(target) 
+                    if not oasis_empty and not oasis_player_owned:
+                        if self.hero_in_village():
+                            hero_hp = self.get_hero_hp()
+                            if hero_hp > 50: # but only if the hero hp is above 50 %.
+                                target["troops"] = {
+                                    "Legionnaire": 0,
+                                    "Praetorian": 0,
+                                    "Imperian": 0,
+                                    "Equites Legati": 0,
+                                    "Equites Imperatoris": 0,
+                                    "Equites Caesaris": 0,
+                                    "Battering ram": 0,
+                                    "Fire Catapult": 0,
+                                    "Senator": 0,
+                                    "Settler": 0,
+                                    "Hero": 1
+                                }
+                                self.attack_target(self.active_city,target,reset=False)
+                                print(f"Hero sent from {village} to clear Oasis in {target['coordinates']}")
+                                continue
+
+                # Normal Farm routine
+                if not self.__target_cooldown_is_over(target):  
                     print(f"Attack from {village} to {target['coordinates']} still in cooldown.")
                     continue
-                if not self.__has_enough_troops(target):
-                    print(f"Attack from {village} to {target['coordinates']} not performed due to lack of troops.")
-                    continue
-                if target['target_type'] == 'oasis' and not self.__is_target_empty(target):
-                    print(f"Attack from {village} to {target['coordinates']} not performed due to oasis being occupied.")
-                    continue
+                
+                # 2. Check if target is oasis
+                if target['target_type'] == 'oasis':
+                    if oasis_player_owned:
+                        print(f"Attack from {village} to {target['coordinates']} not performed due to oasis being conquered by a player.")
+                        continue
+                    if oasis_empty:
+                        if not self.__has_enough_troops(target):     # Exit condition when the oasis is empty.
+                            print(f"Attack from {village} to {target['coordinates']} not performed due to lack of troops.")
+                            continue
+                    else:   # if the oasis is not empty:
+                        print(f"Attack from {village} to {target['coordinates']} not performed due to oasis being occupied.")
+                        continue
+                
+                else: # If the target is not an oasis:
+                    if not self.__has_enough_troops(target):
+                        print(f"Attack from {village} to {target['coordinates']} not performed due to lack of troops.")
+                        continue                    
                 self.attack_target(self.active_city,target)
                 print(f"Attack from {village} to {target['coordinates']} sent.")
         return True
+    
+    def hero_in_village(self) -> bool:
+        self.update_available_troops()
+        return self.available_troops["Hero"] > 0
+    
+    def get_hero_hp(self):
+        url = "https://ts1.x1.international.travian.com/hero/attributes"
+        if self.driver.current_url != url:
+            self.driver.get(url)
+            time.sleep(WAIT_TIMER)
+        hp = self.driver.find_element(By.CSS_SELECTOR,".attributeBox .stats .value").text.replace("%","")
+        hp = hp.encode('ascii', errors='ignore').strip().decode('ascii')
+        return int(hp)
             
     def __has_enough_troops(self,target):
         self.update_available_troops()
@@ -324,18 +422,30 @@ class Travian:
         else:
             return True
         
-    def __check_cooldown_over(self,target:dict):
+    def __target_cooldown_is_over(self,target:dict):
         last_attack = datetime.strptime(target['last_attack'],"%Y-%m-%d %H:%M:%S")
         cooldown = timedelta(minutes=target['cooldown'])
         return datetime.now() > last_attack + cooldown
         
     def __is_target_empty(self,target:dict):
-        self.driver.get(target['target_url'])
-        time.sleep(WAIT_TIMER)
+        if self.driver.current_url != target['target_url']:
+            self.driver.get(target['target_url'])
+            time.sleep(WAIT_TIMER)
         troop_info_element = self.driver.find_element(By.CSS_SELECTOR,"#troop_info")
         return "none" in troop_info_element.text
+    
+    def is_player_owned(self, target):
+        """Check is oasis is owned by a player"""
+        if self.driver.current_url != target['target_url']:
+            self.driver.get(target['target_url'])
+            time.sleep(WAIT_TIMER)
+        try:
+            self.driver.find_element(By.CSS_SELECTOR,"#village_info")
+            return True # If it found the element
+        except:
+            return False
         
-    def attack_target(self,city_from:str, target:dict,attack_type:str="raid"):
+    def attack_target(self,city_from:str, target:dict,attack_type:str="raid",reset:bool=True):
         """Send troops to target location."""
         self.driver.get("https://ts1.x1.international.travian.com/build.php?id=39&gid=16&tt=2")
         # if self.active_city != city_from:
@@ -360,13 +470,14 @@ class Travian:
         self.driver.find_element(By.CSS_SELECTOR,f'[value="ok"]').click()
         time.sleep(WAIT_TIMER)
         self.driver.find_element(By.CSS_SELECTOR,f'[value="Confirm"]').click()
-        self.targets.update_last_attack(village_from=self.active_city, target= target)
+        if reset:
+            self.targets.update_last_attack(village_from=self.active_city, target= target)
         time.sleep(WAIT_TIMER)
         return True
     
     def improve_troop(self,city_from, troop:str):
-        # if self.update_active_city() != city_from:
-        #     self.go_to_village(city_from)
+        if self.update_active_city() != city_from:
+            self.go_to_village(city_from)
         
         # go to smithy
         building_id = self.__query_building("Smithy")
@@ -381,11 +492,11 @@ class Travian:
         button = troop_div.find_element(By.CSS_SELECTOR,".information .cta button")
         if "Improve" in button.text:
             button.click()
-            print(f"{troop.title()} improved in {self.active_city}.")
+            print(f"{troop} improved in {self.active_city}.")
             time.sleep(WAIT_TIMER)
             return True
         else:
-            print(f"{troop.title()} in {city_from} cannot be improved yet.")
+            print(f"{troop} in {city_from} cannot be improved yet.")
             return False
         
     def find_crop(self,coordinates:tuple,radius:int, minimun_crops=9):
@@ -405,16 +516,50 @@ class Travian:
                     pass
                 
     def create_troops(self,city_from:str,troop:str, n_troops):
-        # if self.update_active_city() != city_from:
-        #     self.go_to_village(city_from)
-        pass
-        #TODO identify which building is required and go to the building.
+        # identify which building is required and go to the building.
+        if troop in ["Legionnaire","Praetorian", "Imperian"]:
+            buildings_required = ["Barracks"]
+        elif troop in ["Equites Legati", "Equites Imperatoris", "Equites Caesaris"]:
+            buildings_required = ["Stable"]
+        elif troop in ["Battering ram", "Fire Catapult"]:
+            buildings_required = ["Workshop"]
+        elif troop in ["Senator"]:
+            buildings_required = ["Residence"]
         
-        #TODO Identify the correct section for the troop.
-        
-        #TODO Check if you can create the troops and fill in the boxes if so.
-        
-        #TODO Confirm the troop creation
+        self.go_to_village(city_from)
+        self.go_to_buildings_view()
+        for building in buildings_required:
+            building_id = self.__query_building(building)
+            if building_id is not None:
+                break
+        if building_id is None:
+            raise ValueError("Building not found.")
+        self.driver.find_element(By.CSS_SELECTOR,f"#villageContent .a{building_id}").click()
+        time.sleep(WAIT_TIMER)
+            
+        # Identify the correct section for the troop.
+        troop_sections = self.driver.find_elements(By.CSS_SELECTOR,"#nonFavouriteTroops .troop")
+        troop_not_found = True
+        for troop_section in troop_sections:
+            if troop in troop_section.text:
+                troop_not_found = False
+                n_troops_possible = troop_section.find_element(By.CSS_SELECTOR,".cta a")
+                n_troops_possible = int(n_troops_possible.text)
+                if n_troops <= n_troops_possible:
+                    troop_input = troop_section.find_element(By.CSS_SELECTOR,".cta input")
+                    troop_input.send_keys(Keys.CONTROL + "a")
+                    troop_input.send_keys(Keys.DELETE)
+                    troop_input.send_keys(str(n_troops))
+                else: 
+                    print(f"Not enough resources to train {troop}")
+                    return False
+        if troop_not_found:
+            raise LookupError(f"Troop not found in {city_from}: {troop}")
+        train_troops_btn = self.driver.find_element(By.CSS_SELECTOR,".startTraining")
+        train_troops_btn.click()
+        print(f"{n_troops} {troop} produced in {city_from}.")
+        time.sleep(WAIT_TIMER)
+        return True
         
         
     # --- Queue Functions --- #
@@ -426,6 +571,7 @@ class Travian:
         if self.__last_reset + timedelta(minutes=75) < now:
             print("Driver has been running for too long. Resetting driver.")
             self.reset_driver()
+        self.update_active_city()
         for i in range(len(self.__queue)-1,-1,-1):
             task = self.__queue[i]
             handle = task[0]
@@ -448,3 +594,60 @@ class Travian:
         
     def get_queue(self) -> list:
         return self.__queue.copy()
+    
+    def delete_from_queue(self,task_idx):
+        self.__queue.pop(task_idx)
+    
+    # --- Trade routes --- #
+    
+    def add_trade_route(self,city_from:str, coordinates_to:list, resources:dict, cooldown:int=1440):
+        self.trade_routes.add_new_route(city_from, coordinates_to, resources, cooldown)
+        
+    def get_routes(self,city_from:str):
+        return self.trade_routes.get_routes(city_from)
+    
+    def run_trade_routes(self):
+        for village in self.get_all_villages():
+            self.go_to_village(village)
+            trade_routes = self.get_routes(village)
+            for trade_route in trade_routes:
+                if not self.__trade_route_cooldown_is_over(trade_route):
+                    print(f"Trade route from {village} to {trade_route['coordinates']} is still on cooldown.")
+                if not self.__has_enough_resources(trade_route):
+                    pass
+            self.update_resources()
+            
+    def __trade_route_cooldown_is_over(self,trade_route:dict):
+        last_trade = datetime.strptime(trade_route['last_trade'],"%Y-%m-%d %H:%M:%S")
+        cooldown = timedelta(minutes=trade_route['cooldown'])
+        return datetime.now() > last_trade + cooldown
+    
+    def __has_enough_resources(self,trade_route:dict) -> bool:
+        pass
+    
+    def send_merchants(self,city_from:str, coordinates_to:list,resources:dict):
+        self.go_to_village(city_from)
+        self.go_to_buildings_view()
+        building_id = self.__query_building("Marketplace")
+        self.driver.find_element(By.CSS_SELECTOR,f"#villageContent .a{building_id}").click()
+        time.sleep(WAIT_TIMER)
+        top_row = self.driver.find_elements(By.CSS_SELECTOR,".favor")
+        for element in top_row:
+            if "Send resources" in element.text:
+                element.click()
+                break
+        time.sleep(WAIT_TIMER)
+        try:
+            self.driver.find_element(By.CSS_SELECTOR, ".coordinateX input").send_keys(str(coordinates_to[0]))
+            self.driver.find_element(By.CSS_SELECTOR, ".coordinateY input").send_keys(str(coordinates_to[1]))
+            self.driver.find_element(By.CSS_SELECTOR, "input[name='lumber']").send_keys(str(resources["lumber"]))
+            self.driver.find_element(By.CSS_SELECTOR, "input[name='clay']").send_keys(str(resources["clay"]))
+            self.driver.find_element(By.CSS_SELECTOR, "input[name='iron']").send_keys(str(resources["iron"]))
+            self.driver.find_element(By.CSS_SELECTOR, "input[name='crop']").send_keys(str(resources["crop"]))
+            self.driver.find_element(By.CSS_SELECTOR, "button[type='submit']").click()
+            return True
+        except:
+            return False        
+        
+    
+    # --- Other functions --- #
