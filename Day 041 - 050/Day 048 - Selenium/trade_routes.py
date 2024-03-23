@@ -1,3 +1,4 @@
+from datetime import datetime
 import json
 
 ROOT = ""
@@ -35,4 +36,19 @@ class TradeRoutesManager:
         self.routes[city_from].pop(idx)
     
     def get_routes(self,city_from):
-        return self.routes[city_from].copy()
+        try:
+            return self.routes[city_from].copy()
+        except KeyError:
+            return []
+        
+    def reset_cooldown(self,city_from:str,trade_route):
+        route_found = False
+        for route in self.routes.get(city_from):
+            if route == trade_route:
+                route_found = True
+                break
+        now = datetime.now()
+        route["last_trade"] = now.strftime("%Y-%m-%d %H:%M:%S")
+        self.save_routes()
+            
+        

@@ -61,10 +61,17 @@ class TargetManager:
         self.targets[village_from].pop(idx)
         self.save_targets()
     
-    def update_last_attack(self,village_from,target):
+    def update_last_attack(self, village_from:str, target_coordinates:list):
         now = datetime.now()
-        all_attacks_from_city = self.get_targets(village_from)
-        idx = all_attacks_from_city.index(target)
+        all_targets_from_city = self.get_targets(village_from)
+        target_found = False
+        for idx in range(len(all_targets_from_city)):
+            if target_coordinates == all_targets_from_city[idx].get("coordinates"):
+                target_found = True
+                break
+        if not target_found:
+            return    
+                    
         self.targets[village_from][idx]["last_attack"] = now.strftime("%Y-%m-%d %H:%M:%S")
         self.save_targets()
         

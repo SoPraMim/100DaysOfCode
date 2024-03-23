@@ -19,7 +19,6 @@ class Travian:
         self.__last_reset:datetime = None
         self.warehouse_capacity = 0
         self.granary_capacity = 0
-        self.resources = {}
         self.villages = {}
         self.resources_layout = {}
         self.buildings_layout = {}
@@ -32,7 +31,6 @@ class Travian:
         self.login()
         self.load_villages()
         self.update_active_city()
-        self.update_resources()
     
     # --- Driver-Related Functions --- #
     def login(self):
@@ -74,16 +72,15 @@ class Travian:
     def get_all_villages(self):
         return [village for village in self.villages]
         
-    def update_resources(self):
-        self.warehouse_capacity = self.driver.find_element(By.CSS_SELECTOR,".warehouse .capacity").text
-        self.warehouse_capacity = int(self.warehouse_capacity.encode('ascii', errors='ignore').strip().decode('ascii').replace(",",""))
-        self.granary_capacity = self.driver.find_element(By.CSS_SELECTOR,".granary .capacity").text
-        self.granary_capacity = int(self.granary_capacity.encode('ascii', errors='ignore').strip().decode('ascii').replace(",",""))
-        self.resources['Lumber'] = int(self.driver.find_element(By.CSS_SELECTOR,"#l1").text.replace(",",""))
-        self.resources['Clay'] = int(self.driver.find_element(By.CSS_SELECTOR,"#l2").text.replace(",",""))
-        self.resources['Iron'] = int(self.driver.find_element(By.CSS_SELECTOR,"#l3").text.replace(",",""))
-        self.resources['Crop'] = int(self.driver.find_element(By.CSS_SELECTOR,"#l4").text.replace(",",""))
-        
+    def check_resources(self):
+        resources = {
+            "Lumber": int(self.driver.find_element(By.CSS_SELECTOR,"#l1").text.replace(",","")),
+            "Clay": int(self.driver.find_element(By.CSS_SELECTOR,"#l2").text.replace(",","")),
+            "Iron": int(self.driver.find_element(By.CSS_SELECTOR,"#l3").text.replace(",","")),
+            "Crop": int(self.driver.find_element(By.CSS_SELECTOR,"#l4").text.replace(",","")),
+        }
+        return resources
+
     def update_villages(self):
         village_list = self.driver.find_element(By.CSS_SELECTOR,".villageList")
         village_entries = village_list.find_elements(By.CSS_SELECTOR,".listEntry")
@@ -347,58 +344,104 @@ class Travian:
     
     def farm_targets(self):
         for village in self.villages:
-            for target in self.targets.get_targets(village):
-                self.go_to_village(village)
-                # 1. check the cooldown
-                # Send to hero to occupied nature oasis.
-                if target['target_type'] == 'oasis':
-                    oasis_empty = self.__is_target_empty(target)
-                    oasis_player_owned = self.is_player_owned(target) 
-                    if not oasis_empty and not oasis_player_owned:
-                        if self.hero_in_village():
-                            hero_hp = self.get_hero_hp()
-                            if hero_hp > 50: # but only if the hero hp is above 50 %.
-                                target["troops"] = {
-                                    "Legionnaire": 0,
-                                    "Praetorian": 0,
-                                    "Imperian": 0,
-                                    "Equites Legati": 0,
-                                    "Equites Imperatoris": 0,
-                                    "Equites Caesaris": 0,
-                                    "Battering ram": 0,
-                                    "Fire Catapult": 0,
-                                    "Senator": 0,
-                                    "Settler": 0,
-                                    "Hero": 1
-                                }
-                                self.attack_target(self.active_city,target,reset=False)
-                                print(f"Hero sent from {village} to clear Oasis in {target['coordinates']}")
-                                continue
-
-                # Normal Farm routine
-                if not self.__target_cooldown_is_over(target):  
-                    print(f"Attack from {village} to {target['coordinates']} still in cooldown.")
-                    continue
-                
-                # 2. Check if target is oasis
-                if target['target_type'] == 'oasis':
-                    if oasis_player_owned:
-                        print(f"Attack from {village} to {target['coordinates']} not performed due to oasis being conquered by a player.")
+            targets = self.targets.get_targets(village)
+            for target in targets:
+                try:
+                    target = target.copy()
+                    self.go_to_village(village)
+                    # 1. check the cooldown
+                    if not self.__target_cooldown_is_over(target):  
+                        print(f"Attack from {village} to {target['coordinates']} still in cooldown.")
                         continue
-                    if oasis_empty:
-                        if not self.__has_enough_troops(target):     # Exit condition when the oasis is empty.
-                            print(f"Attack from {village} to {target['coordinates']} not performed due to lack of troops.")
+                    
+                    if target['target_type'] == 'oasis':
+                        oasis_empty = self.__is_target_empty(target)
+                        oasis_player_owned = self.is_player_owned(target)
+                        
+                        if not any([oasis_empty,oasis_player_owned]):
+                            army_sent = False
+                            # Send to hero to occupied nature oasis. 
+                            if self.hero_in_village():
+                                hero_hp = self.get_hero_hp()
+                                if hero_hp > 50: # but only if the hero hp is above 50 %.
+                                    target["troops"] = {
+                                        "Legionnaire": 0,
+                                        "Praetorian": 0,
+                                        "Imperian": 0,
+                                        "Equites Legati": 0,
+                                        "Equites Imperatoris": 100,
+                                        "Equites Caesaris": 0,
+                                        "Battering ram": 0,
+                                        "Fire Catapult": 0,
+                                        "Senator": 0,
+                                        "Settler": 0,
+                                        "Hero": 1
+                                    }
+                                    self.attack_target(self.active_city,target_coordinates=target["coordinates"],troops=target["troops"],reset=True)
+                                    print(f"Hero sent from {village} to clear Oasis in {target['coordinates']}.")
+                                    army_sent = True
+                                    continue
+                            # Remaining conditions for occupied oasis 
+                            test_armies = [{
+                                "Legionnaire": 0,
+                                "Praetorian": 0,
+                                "Imperian": 0,
+                                "Equites Legati": 0,
+                                "Equites Imperatoris": 200,
+                                "Equites Caesaris": 0,
+                                "Battering ram": 0,
+                                "Fire Catapult": 0,
+                                "Senator": 0,
+                                "Settler": 0,
+                                "Hero": 0
+                            },
+                                {
+                                "Legionnaire": 0,
+                                "Praetorian": 0,
+                                "Imperian": 300,
+                                "Equites Legati": 0,
+                                "Equites Imperatoris": 0,
+                                "Equites Caesaris": 0,
+                                "Battering ram": 0,
+                                "Fire Catapult": 0,
+                                "Senator": 0,
+                                "Settler": 0,
+                                "Hero": 0
+                            }]
+                            for army in test_armies:
+                                target["troops"] = army
+                                if self.__has_enough_troops(target):
+                                    self.attack_target(self.active_city,target_coordinates=target["coordinates"],troops=target["troops"],reset=True)
+                                    print(f"Clean up army sent from {village} to clear Oasis in {target['coordinates']}.")
+                                    army_sent = True
+                                    continue
+                            if army_sent == False:
+                                print(f"Clean up army not available to clear Oasis in {target['coordinates']}.")
                             continue
-                    else:   # if the oasis is not empty:
-                        print(f"Attack from {village} to {target['coordinates']} not performed due to oasis being occupied.")
-                        continue
-                
-                else: # If the target is not an oasis:
-                    if not self.__has_enough_troops(target):
-                        print(f"Attack from {village} to {target['coordinates']} not performed due to lack of troops.")
-                        continue                    
-                self.attack_target(self.active_city,target)
-                print(f"Attack from {village} to {target['coordinates']} sent.")
+                                
+
+                    # Normal Farm routine
+                    # 2. Check if target is oasis
+                    if target['target_type'] == 'oasis':
+                        if oasis_player_owned:
+                            print(f"Attack from {village} to {target['coordinates']} not performed due to oasis being conquered by a player.")
+                            continue
+                        if oasis_empty:
+                            if not self.__has_enough_troops(target):     # Exit condition when the oasis is empty.
+                                print(f"Attack from {village} to {target['coordinates']} not performed due to lack of troops.")
+                                continue
+                        elif not oasis_empty:
+                            print(f"Attack from {village} to {target['coordinates']} not performed due to oasis being occupied.")
+                            continue
+                    
+                    else: # If the target is not an oasis:
+                        if not self.__has_enough_troops(target):
+                            print(f"Attack from {village} to {target['coordinates']} not performed due to lack of troops.")
+                            continue                    
+                    self.attack_target(self.active_city,target_coordinates=target["coordinates"],troops=target["troops"])
+                    print(f"Attack from {village} to {target['coordinates']} sent.")
+                except:
+                    print(f"*ERROR* Attack from {village} to {target['coordinates']} failed. This is likely due to village not existing.")
         return True
     
     def hero_in_village(self) -> bool:
@@ -445,19 +488,17 @@ class Travian:
         except:
             return False
         
-    def attack_target(self,city_from:str, target:dict,attack_type:str="raid",reset:bool=True):
+    def attack_target(self,city_from:str, target_coordinates:list,troops: dict, attack_type:str="raid",reset:bool=True):
         """Send troops to target location."""
+        self.go_to_village(city_from)
         self.driver.get("https://ts1.x1.international.travian.com/build.php?id=39&gid=16&tt=2")
-        # if self.active_city != city_from:
-        #     self.go_to_city(city_from)
         attack_value_codes = {
             "raid": "4",
             "normal":"3",
             "reinforcement":"5",
         }
-        coordinates_x, coordinates_y = target["coordinates"]
-        troops_required: dict = target["troops"]
-        for troop,number_of_troops in troops_required.items():
+        coordinates_x, coordinates_y = target_coordinates
+        for troop,number_of_troops in troops.items():
             if number_of_troops == 0:
                 continue
             icon = self.driver.find_element(By.CSS_SELECTOR,f'td [alt="{troop}"]')
@@ -471,7 +512,7 @@ class Travian:
         time.sleep(WAIT_TIMER)
         self.driver.find_element(By.CSS_SELECTOR,f'[value="Confirm"]').click()
         if reset:
-            self.targets.update_last_attack(village_from=self.active_city, target= target)
+            self.targets.update_last_attack(city_from, target_coordinates)
         time.sleep(WAIT_TIMER)
         return True
     
@@ -608,14 +649,21 @@ class Travian:
     
     def run_trade_routes(self):
         for village in self.get_all_villages():
-            self.go_to_village(village)
             trade_routes = self.get_routes(village)
             for trade_route in trade_routes:
+                self.go_to_village(village)
                 if not self.__trade_route_cooldown_is_over(trade_route):
                     print(f"Trade route from {village} to {trade_route['coordinates']} is still on cooldown.")
+                    continue
                 if not self.__has_enough_resources(trade_route):
-                    pass
-            self.update_resources()
+                    print(f"Not enough resources to send from {village} to {trade_route['coordinates']}.")
+                    continue
+                try:
+                    self.send_merchants(city_from=village, coordinates_to=trade_route['coordinates'],resources=trade_route.get("resources"))
+                    self.__reset_trade_route_cooldown(village, trade_route)
+                    print(f"Resources sent from {village} to {trade_route['coordinates']}.")
+                except:
+                    raise
             
     def __trade_route_cooldown_is_over(self,trade_route:dict):
         last_trade = datetime.strptime(trade_route['last_trade'],"%Y-%m-%d %H:%M:%S")
@@ -623,8 +671,14 @@ class Travian:
         return datetime.now() > last_trade + cooldown
     
     def __has_enough_resources(self,trade_route:dict) -> bool:
-        pass
-    
+        available_resources:dict = self.check_resources()
+        resources_needed:dict = trade_route.get("resources")
+        for resource in available_resources:
+            if (available_resources.get(resource) - resources_needed.get(resource)) < 0:
+                return False
+        else:
+            return True
+        
     def send_merchants(self,city_from:str, coordinates_to:list,resources:dict):
         self.go_to_village(city_from)
         self.go_to_buildings_view()
@@ -640,14 +694,17 @@ class Travian:
         try:
             self.driver.find_element(By.CSS_SELECTOR, ".coordinateX input").send_keys(str(coordinates_to[0]))
             self.driver.find_element(By.CSS_SELECTOR, ".coordinateY input").send_keys(str(coordinates_to[1]))
-            self.driver.find_element(By.CSS_SELECTOR, "input[name='lumber']").send_keys(str(resources["lumber"]))
-            self.driver.find_element(By.CSS_SELECTOR, "input[name='clay']").send_keys(str(resources["clay"]))
-            self.driver.find_element(By.CSS_SELECTOR, "input[name='iron']").send_keys(str(resources["iron"]))
-            self.driver.find_element(By.CSS_SELECTOR, "input[name='crop']").send_keys(str(resources["crop"]))
+            self.driver.find_element(By.CSS_SELECTOR, "input[name='lumber']").send_keys(str(resources["Lumber"]))
+            self.driver.find_element(By.CSS_SELECTOR, "input[name='clay']").send_keys(str(resources["Clay"]))
+            self.driver.find_element(By.CSS_SELECTOR, "input[name='iron']").send_keys(str(resources["Iron"]))
+            self.driver.find_element(By.CSS_SELECTOR, "input[name='crop']").send_keys(str(resources["Crop"]))
             self.driver.find_element(By.CSS_SELECTOR, "button[type='submit']").click()
             return True
         except:
-            return False        
+            return False
+        
+    def __reset_trade_route_cooldown(self, city_from, trade_route):
+        self.trade_routes.reset_cooldown(city_from,trade_route)
         
     
     # --- Other functions --- #

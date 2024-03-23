@@ -48,6 +48,17 @@ class MainWindow:
         self.canvas.pack(fill="both",expand=True)
 
         # Buttons
+        # Left collumn
+        self.update_villages_btn = Button(
+            self.root,
+            text='Update Villages', 
+            width=13,
+            height=2, 
+            command=TRAVIAN.update_villages
+        )
+        self.update_villages_btn.place(x=20, y=300)
+
+        
         self.start_queue_btn = Button(
             self.root,
             text='Start Queue', 
@@ -295,7 +306,7 @@ class QueueManagerUI:
         elif task_selection == "Farm targets":
             TRAVIAN.add_to_queue(TRAVIAN.farm_targets,[],repeatable=True)
         elif task_selection == "Enable trade routes":
-            # TRAVIAN.add_to_queue()
+            TRAVIAN.add_to_queue(TRAVIAN.run_trade_routes,[],repeatable=True)
             pass
         # Check that village is filled.
         elif village == "":
